@@ -1,0 +1,19 @@
+{
+  "name": "package.json",
+  "version": "1.0.0",
+  "description": "Package for myFlix-client",
+  "main": "src/index.html",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/rmilligan006/myFlix-client.git"
+  },
+  "author": "Ryan Milligan",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/rmilligan006/myFlix-client/issues"
+  },
+  "homepage": "https://github.com/rmilligan006/myFlix-client#readme"
+}
