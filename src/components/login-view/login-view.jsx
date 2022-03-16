@@ -1,12 +1,16 @@
 import React, { useState } from 'react';
-import  propTypes  from "prop-types";
+import PropTypes from "prop-types";
+import Form from 'react-bootstrap/Form';
+import  Button  from 'react-bootstrap/Button';
+
+//stylesheet for login-view
+import "./login-view.scss"
 
 import './login-view.scss';
 
 export function LoginView(props) {
   const [ username, setUsername ] = useState('');
   const [ password, setPassword ] = useState('');
-  const [email, setEmail] = useState('');
 
   const handleSubmit = (e) => {
     e.preventDefault();
@@ -17,28 +21,29 @@ export function LoginView(props) {
   };
 
   return (
-    <div className="main">
-        <input type="checkbox" id="chk" aria-hidden="true"/>
-        <div className="login">
-            <form>
-                <label htmlFor="chk" aria-hidden="true">Myflix</label>
-                <input type="text" name="txt" placeholder="Username" value={username} onChange={e => setUsername(e.target.value)} required="" />
-                <input type="password" name="pswd" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required="" />
-                < button type="submit" onClick={handleSubmit}>Login</button>
-            </form>
-            <div className="signup">
-                <form>
-                    <label htmlFor="chk" aria-hidden="true">Sign up</label>
-                    <input type="text" name="txt" placeholder="User name" value={username} onChange={e => setUsername(e.target.value)} required="" />
-                    <input type="email" name="email" placeholder="Email" value={email} onChange={e => setEmail(e.target.value)} required=""/>
-                    <input type="password" name="pswd" placeholder="Password" value={password} onChange={e => setPassword(e.target.value)} required="" />
-                    <input type="date" name="dateofbirth" placeholder="mm/dd/yy" id="dateofbirth" />
+    <Form>
+      <Form.Group controlId='formUsername'>
+        <Form.Label>Username:</Form.Label>
+        <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+      </Form.Group>
 
+      <Form.Group controlId="formPassword">
+        <Form.Label>Password</Form.Label>
+        <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+      </Form.Group>
+      <Button variant="Primary" type="submit" onClick={handleSubmit}>
+        Submit
+      </Button>
 
-                    <button type="submit" onClick={handleSubmit}>Sign up</button>
-                </form>
-            </div>
-        </div>
-    </div>
+    </Form>
   );
+  
 }
+
+LoginView.propTypes = {
+  user: PropTypes.shape({
+      username: PropTypes.string.isRequired,
+      password: PropTypes.string.isRequired
+  }),
+  onLoggedIn: PropTypes.func.isRequired,
+};

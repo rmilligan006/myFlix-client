@@ -24,3 +24,9 @@ Ryan Milligan,
 version history: 
 0.1 
     initial release. 
+
+
+style guide: 
+Main color: probably something warm, vibrant maybe? or a muted color
+secondary: either a muted white background?
+tertiary: So buttons, and such. maybe a muted blue?
