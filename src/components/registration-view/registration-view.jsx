@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
-import  propTypes  from "prop-types";
-import { Form } from 'react-bootstrap';
+    //login stylesheet
+    import './login-view.scss'
 
 export function RegisterView(props) {
     const [username, setUsername] = userState('');
