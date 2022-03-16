@@ -30,7 +30,7 @@ export function RegisterView(props) {
                                <Form.Group>
                                    <Form.Label>Username</Form.Label>
                                    <Form.Control 
-                                   Type="text"
+                                   type="text"
                                    value={username}
                                    onChange={e => setUsername(e.target.value)}
                                    required
@@ -41,7 +41,7 @@ export function RegisterView(props) {
                                <Form.Group>
                                    <Form.Label>Password</Form.Label>
                                    <Form.Control
-                                    Type="password"
+                                    type="password"
                                     value={password}
                                     onChange={e => setPassword(e.target.value)}
                                     required
@@ -53,11 +53,20 @@ export function RegisterView(props) {
                                    <Form.Label>Email</Form.Label>
                                    <Form.Control
                                    type="email"
-                                   value={value}
+                                   value={email}
                                    onChange={e => setEmail(e.target.value)}
                                    required
                                    placeholder="Enter your email address!"
                                    />
+                               </Form.Group>
+                               <Form.Group>
+                                   <Form.Label>Birthday</Form.Label>
+                                   <Form.Control
+                                    type="text"
+                                    value="{birthday"
+                                    onChange={(e) => setBirthday(e.target.value)}
+                                    placeholder="Enter your Birthday"
+                                    />
                                </Form.Group>
 
                                <Button variant="primary"
@@ -74,7 +83,7 @@ export function RegisterView(props) {
        </Container>
     )
  }
- RegistrationView.propTypes = {
+ RegisterView.propTypes = {
     register: PropTypes.shape({
         Username: PropTypes.string.isRequired,
         Password: PropTypes.string.isRequired,
@@ -82,3 +91,5 @@ export function RegisterView(props) {
     }),
     onRegistration: PropTypes.func.isRequired
 }; 
+
+export default RegistrationView;
