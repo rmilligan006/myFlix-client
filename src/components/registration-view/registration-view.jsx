@@ -1,6 +1,6 @@
 import React, { useState } from 'react';
     //registration stylesheet
-    import './login-view.scss'
+    import './registration-view.scss'
 import {Form, Button, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
 
 export function RegisterView(props) {
@@ -81,4 +81,4 @@ export function RegisterView(props) {
         Email: PropTypes.string.isRequired
     }),
     onRegistration: PropTypes.func.isRequired
-};
+}; 
