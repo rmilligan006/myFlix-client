@@ -1,12 +1,13 @@
 import React, { useState } from 'react';
-    //login stylesheet
+    //registration stylesheet
     import './login-view.scss'
+import {Form, Button, Card, CardGroup, Container, Col, Row} from 'react-bootstrap';
 
 export function RegisterView(props) {
-    const [username, setUsername] = userState('');
-    const [password, setPassword] = userState('');
-    const [email, setEmail] = userState('');
-    const [birthday, setBirthday] = userState('');
+    const [username, setUsername] = useState('');
+    const [password, setPassword] = useState('');
+    const [email, setEmail] = useState('');
+    const [birthday, setBirthday] = useState('');
 
 
     const handleSubmit = (e) => {
@@ -18,24 +19,66 @@ export function RegisterView(props) {
     };
 
     return (
-        <form>
-            <label>
-                Username:
-                <input type="text" value={username} onChange={e => setUsername(e.target.value)} />
-            </label>
-            <label>
-                Password:
-                <input type="text" value={password} onChange={e => setPassword(e.target.value)} />
-            </label>
-            <label>
-                Email:
-                <input type="text" value={email} onChange={e => setEmail(e.target.value)} />
-            </label>
-            
-            <div class="coc-form">
-                <div className="coc-block-row"></div>
-            </div>
-        </form>
+       <Container>
+           <Row>
+               <Col>
+               <CardGroup>
+                   <Card>
+                       <Card.Body>
+                           <Card.Title>Register to get Access!</Card.Title>
+                           <Form>
+                               <Form.Group>
+                                   <Form.Label>Username</Form.Label>
+                                   <Form.Control 
+                                   Type="text"
+                                   value={username}
+                                   onChange={e => setUsername(e.target.value)}
+                                   required
+                                   placeholder="Enter a Username"
+                                   />
+                               </Form.Group>
+
+                               <Form.Group>
+                                   <Form.Label>Password</Form.Label>
+                                   <Form.Control
+                                    Type="password"
+                                    value={password}
+                                    onChange={e => setPassword(e.target.value)}
+                                    required
+                                    placeholder="Please enter a password!"
+                                    />
+                               </Form.Group>
+
+                               <Form.Group>
+                                   <Form.Label>Email</Form.Label>
+                                   <Form.Control
+                                   type="email"
+                                   value={value}
+                                   onChange={e => setEmail(e.target.value)}
+                                   required
+                                   placeholder="Enter your email address!"
+                                   />
+                               </Form.Group>
+
+                               <Button variant="primary"
+                               type="submit"
+                               onClick={handleSubmit}>
+                                   Register
+                               </Button>
+                           </Form>
+                       </Card.Body>
+                   </Card>
+               </CardGroup>
+               </Col>
+           </Row>
+       </Container>
     )
  }
-    
+ RegistrationView.propTypes = {
+    register: PropTypes.shape({
+        Username: PropTypes.string.isRequired,
+        Password: PropTypes.string.isRequired,
+        Email: PropTypes.string.isRequired
+    }),
+    onRegistration: PropTypes.func.isRequired
+};

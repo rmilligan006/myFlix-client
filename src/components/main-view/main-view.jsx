@@ -4,6 +4,11 @@ import axios from 'axios';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import  Row  from 'react-bootstrap/Row';
+import  Col  from 'react-bootstrap/Col';
+//stylesheet for main-view
+import "./main-view.scss"
+
 
 export class Mainview extends React.Component {
   constructor(){
@@ -26,13 +31,21 @@ export class Mainview extends React.Component {
         console.log(error);
       });
   }
-
+    /* When the selected movie is clicked, this function is started and updates the state of the 'SelectedMovie' property */
     setSelectedMovie(newSelectedMovie) {
       this.setState({
         selectedMovie: newSelectedMovie
       });
     }
 
+    //When a user successfully registers
+    onRegistration(register) {
+      this.state({
+        register,
+      });
+    }
+
+    //When a user successfully logs in, this function updates the 'user' property in state of the particular user.
     onLoggedIn(user) {
       this.setState({
         user
@@ -49,14 +62,20 @@ export class Mainview extends React.Component {
       if (movies.length === 0) return <div className="main-view" />;
   
       return (
-        <div className="main-view">
+        <Row className="main-view justify-content-md-center">
           {selectedMovie
-            ? <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+            ? (
+              <Col md={8}>
+                <MovieView movie={selectedMovie} onBackClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }} />
+              </Col>
+            )
             : movies.map(movie => (
-              <MovieCard key={movie._id} movie={movie} onMovieClick={(newSelectedMovie) => { this.setSelectedMovie(newSelectedMovie) }}/>
-           ))
+              <Col md={3}>
+                <MovieCard key={movie._id} movie={movie} onMovieClick={newSelectedMovie => { this.setSelectedMovie(newSelectedMovie); }}/>
+              </Col>
+            ))
           }
-        </div>
+        </Row>
       );
   }
 
