@@ -9,7 +9,7 @@ import {
   Col,
   Row,
 } from "react-bootstrap";
-import { NavbarView } from "../navbar-view/navbar-view";
+
 import axios from 'axios';
 
 //stylesheet for login-view
@@ -30,10 +30,12 @@ export function LoginView(props) {
       const data = response.data;
       props.onLoggedIn(data);
     })
-    .catch(e => {
-      console.log('no such user')
+    .catch(error => {
+      console.log(error, 'no such user');
     });
-  }
+  };
+
+ 
     
 
   return (

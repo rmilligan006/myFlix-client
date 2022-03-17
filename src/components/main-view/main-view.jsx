@@ -52,12 +52,27 @@ export class Mainview extends React.Component {
   onLoggedIn(authData) {
     console.log(authData);
     this.setState({
-      user: authData.user.Username
+        user: authData.user.Username
     });
-  
+
     localStorage.setItem('token', authData.token);
     localStorage.setItem('user', authData.user.Username);
     this.getMovies(authData.token);
+  }
+
+  getMovies(token) {
+    axios.get('https://rmilligansmovieapp.herokuapp.com/movies', {
+      headers: { Authorization: `Bearer ${token}`}
+    })
+    .then(response => {
+      // Assign the result to the state
+      this.setState({
+        movies: response.data
+      });
+    })
+    .catch(function (error) {
+      console.log(error);
+    });
   }
 
   render() {
@@ -87,9 +102,8 @@ export class Mainview extends React.Component {
             </Col>
           ) : (
             movies.map((movie) => (
-              <Col md={4} lg={6}>
+              <Col md={4} lg={6} key={movie._id}>
                 <MovieCard
-                  key={movie._id}
                   movie={movie}
                   onMovieClick={(newSelectedMovie) => {
                     this.setSelectedMovie(newSelectedMovie);
