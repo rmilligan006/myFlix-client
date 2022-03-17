@@ -9,6 +9,7 @@ import {
   Col,
   Row,
 } from "react-bootstrap";
+import axios from 'axios';
 
 //stylesheet for login-view
 import "./login-view.scss";
@@ -19,11 +20,20 @@ export function LoginView(props) {
 
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password);
-    /* Send a request to the server for authentication */
-    /* then call props.onLoggedIn(username) */
-    props.onLoggedIn(username);
-  };
+    //Sends a request to the server for authentication
+    axios.post('https://rmilligansmovieapp.herokuapp.com/login', {
+      Username: username,
+      Password: password
+    })
+    .then( response => {
+      const data = response.data;
+      props.onLoggedIn(data);
+    })
+    .catch(e => {
+      console.log('no such user')
+    });
+  }
+    
 
   return (
     <Container>
