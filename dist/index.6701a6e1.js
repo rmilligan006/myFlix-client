@@ -23031,7 +23031,7 @@ class Mainview extends _reactDefault.default.Component {
                     },
                     __self: this,
                     children: selectedMovie ? /*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                        md: 6,
+                        md: 4,
                         __source: {
                             fileName: "src/components/main-view/main-view.jsx",
                             lineNumber: 80
@@ -23049,8 +23049,8 @@ class Mainview extends _reactDefault.default.Component {
                             __self: this
                         })
                     }) : movies.map((movie)=>/*#__PURE__*/ _jsxRuntime.jsx(_colDefault.default, {
-                            md: 6,
-                            lg: 4,
+                            md: 4,
+                            lg: 6,
                             __source: {
                                 fileName: "src/components/main-view/main-view.jsx",
                                 lineNumber: 90
@@ -23066,7 +23066,7 @@ class Mainview extends _reactDefault.default.Component {
                                     lineNumber: 91
                                 },
                                 __self: this
-                            }, movie._id)
+                            }, movies._id)
                         })
                     )
                 })
