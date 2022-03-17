@@ -1,4 +1,6 @@
 import React, { useState } from "react";
+import axios from 'axios';
+import  propTypes  from 'prop-types';
 //registration stylesheet
 import "./registration-view.scss";
 import {
@@ -17,12 +19,61 @@ export function RegisterView(props) {
   const [email, setEmail] = useState("");
   const [birthday, setBirthday] = useState("");
 
+  //Declaring a Hook for each input
+  const [ usernameErr, setUsernameErr ] = useState('');
+  const [ passwordErr, setPasswordErr ] = useState('');
+  const [emailErr, setEmailErr ] = useState('');
+
+  //validate user inputs
+  const validate = () => {
+    let isReq = true;
+    if(!Username) {
+      setUsernameErr('Username required');
+      isReq= false;
+    }else if(username.length < 2){
+      setUsernameErr('Username must be at least two characters long');
+      isReq = false;
+    }
+    if(!Password){
+      setPasswordErr('Password Required');
+      isReq = false;
+    }else if(password.length < 6) {
+      setPassword('Password must be at least 6 characters long');
+      isReq = false;
+    }
+    if(!Email){
+      setEmailErr('Email required');
+      isReq = false;
+    }else if(email.indexOf('@')=== -1){
+      setEmail('Email must be valid');
+      isReq = false;
+    }
+
+    return isReq;
+  }
+
   const handleSubmit = (e) => {
     e.preventDefault();
-    console.log(username, password, email, birthday);
-    //Send a request to the server for authentication
-    //Then call props.onRegistration(username);
-    props.onRegistration(username);
+    const isReq = validate();
+    if(isReq) {
+      //send a request to the server for authentication
+      axios.post('https://rmilligansmovieapp.herokuapp.com/login',{
+        Username: username,
+        Password: password,
+        Email: email,
+        Birthday: birthday
+      })
+        .then(response => {
+          const data = response.data;
+          console.log(data);
+          alert('Registration sussessful, please login.');
+          window.open('/', '_self');
+        })
+        .catch(response => {
+          console.error(response);
+          alert('Unable to register');
+        });
+    }
   };
 
   return (

@@ -2,6 +2,7 @@ import React from "react";
 import axios from "axios";
 
 import { LoginView } from "../login-view/login-view";
+
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { NavbarView } from "../navbar-view/navbar-view";
@@ -23,16 +24,13 @@ export class Mainview extends React.Component {
   }
 
   componentDidMount() {
-    axios
-      .get("https://rmilligansmovieapp.herokuapp.com/movies")
-      .then((response) => {
-        this.setState({
-          movies: response.data,
-        });
-      })
-      .catch((error) => {
-        console.log(error);
+    let accessToken = localStorage.getItem('token');
+    if (accessToken !== null) {
+      this.setState({
+        user: localStorage.getItem('user')
       });
+      this.getMovies(accessToken);
+    }
   }
   /* When the selected movie is clicked, this function is started and updates the state of the 'SelectedMovie' property */
   setSelectedMovie(newSelectedMovie) {
@@ -41,12 +39,7 @@ export class Mainview extends React.Component {
     });
   }
 
-  //When a user successfully registers
-  onRegistration(register) {
-    this.state({
-      register,
-    });
-  }
+  
 
   //When a user successfully logs in, this function updates the 'user' property in state of the particular user.
   onLoggedIn(authData) {
@@ -72,6 +65,14 @@ export class Mainview extends React.Component {
     })
     .catch(function (error) {
       console.log(error);
+    });
+  }
+
+  onLoggedOut() {
+    localStorage.removeItem('token');
+    localStorage.removeItem('user');
+    this.setState({
+      user: null
     });
   }
 
@@ -113,6 +114,7 @@ export class Mainview extends React.Component {
             ))
           )}
         </Row>
+        <button onClick={() => { this.onLoggedOut() }}>Logout</button>
       </Container>
     );
   }
