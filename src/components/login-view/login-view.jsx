@@ -9,6 +9,7 @@ import {
   Col,
   Row,
 } from "react-bootstrap";
+import { NavbarView } from "../navbar-view/navbar-view";
 import axios from 'axios';
 
 //stylesheet for login-view
