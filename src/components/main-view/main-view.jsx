@@ -4,6 +4,8 @@ import axios from 'axios';
 import { LoginView } from '../login-view/login-view';
 import { MovieCard } from '../movie-card/movie-card';
 import { MovieView } from '../movie-view/movie-view';
+import { NavbarView } from '../navbar-view/navbar-view';
+
 import  Row  from 'react-bootstrap/Row';
 import  Col  from 'react-bootstrap/Col';
 //stylesheet for main-view
@@ -62,6 +64,7 @@ export class Mainview extends React.Component {
       if (movies.length === 0) return <div className="main-view" />;
   
       return (
+     
         <Row className="main-view justify-content-md-center">
           {selectedMovie
             ? (
@@ -76,6 +79,7 @@ export class Mainview extends React.Component {
             ))
           }
         </Row>
+      
       );
   }
 
