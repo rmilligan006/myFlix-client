@@ -1,6 +1,6 @@
 import React from 'react';
 import PropTypes from 'prop-types';
-import {Card, Col, Container, Row, Button} from "react-bootstrap";
+import { Card, Col, Container, Row, Button } from "react-bootstrap";
 //MovieView stylesheet
 import './movie-view.scss'
 
@@ -20,11 +20,11 @@ export class MovieView extends React.Component {
 
   render() {
     const { movie, onBackClick } = this.props;
-  
-      return (
-        <Container>
-          <Row>
-            <Col>
+
+    return (
+      <Container>
+        <Row>
+          <Col>
             <Card id="movie-view">
               <Card.Body>
                 <Card.Img id="movie-view-image" variant="top" src={movie.ImagePath} />
@@ -40,25 +40,25 @@ export class MovieView extends React.Component {
                 </Card.Text>
               </Card.Body>
             </Card>
-            <Button id="movie-view-button" onClick={() => {onBackClick(null); }}>Back</Button>
-            <Button id="movie-view-button" onClick={() => {}}>Add to Favorites</Button>
-            </Col>
-          </Row>
-        </Container>
-      )
-      
-      
-      
-      
-      
-      
-      
-      
-    
+            <Button id="movie-view-button" onClick={() => { onBackClick(null); }}>Back</Button>
+            <Button id="movie-view-button" onClick={() => { }}>Add to Favorites</Button>
+          </Col>
+        </Row>
+      </Container>
+    )
+
+
+
+
+
+
+
+
+
   }
 }
 
-MovieView.propTypes = {
+/*MovieView.propTypes = {
   movie: PropTypes.shape({
     Title: PropTypes.string.isRequired,
     Description: PropTypes.string.isRequired,
@@ -73,4 +73,4 @@ MovieView.propTypes = {
     }),
   }).isRequired,
 
-};
+}; */
