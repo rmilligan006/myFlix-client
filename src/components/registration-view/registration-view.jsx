@@ -1,6 +1,6 @@
 import React, { useState } from "react";
 import axios from 'axios';
-import  propTypes  from 'prop-types';
+import propTypes from 'prop-types';
 //registration stylesheet
 import "./registration-view.scss";
 import {
@@ -20,31 +20,31 @@ export function RegisterView(props) {
   const [birthday, setBirthday] = useState("");
 
   //Declaring a Hook for each input
-  const [ usernameErr, setUsernameErr ] = useState('');
-  const [ passwordErr, setPasswordErr ] = useState('');
-  const [emailErr, setEmailErr ] = useState('');
+  const [usernameErr, setUsernameErr] = useState('');
+  const [passwordErr, setPasswordErr] = useState('');
+  const [emailErr, setEmailErr] = useState('');
 
   //validate user inputs
   const validate = () => {
     let isReq = true;
-    if(!Username) {
+    if (!Username) {
       setUsernameErr('Username required');
-      isReq= false;
-    }else if(username.length < 2){
+      isReq = false;
+    } else if (username.length < 2) {
       setUsernameErr('Username must be at least two characters long');
       isReq = false;
     }
-    if(!Password){
+    if (!Password) {
       setPasswordErr('Password Required');
       isReq = false;
-    }else if(password.length < 6) {
+    } else if (password.length < 6) {
       setPassword('Password must be at least 6 characters long');
       isReq = false;
     }
-    if(!Email){
+    if (!Email) {
       setEmailErr('Email required');
       isReq = false;
-    }else if(email.indexOf('@')=== -1){
+    } else if (email.indexOf('@') === -1) {
       setEmail('Email must be valid');
       isReq = false;
     }
@@ -55,9 +55,9 @@ export function RegisterView(props) {
   const handleSubmit = (e) => {
     e.preventDefault();
     const isReq = validate();
-    if(isReq) {
+    if (isReq) {
       //send a request to the server for authentication
-      axios.post('https://rmilligansmovieapp.herokuapp.com/login',{
+      axios.post('https://rmilligansmovieapp.herokuapp.com/login', {
         Username: username,
         Password: password,
         Email: email,
@@ -143,13 +143,6 @@ export function RegisterView(props) {
     </Container>
   );
 }
-RegisterView.propTypes = {
-  register: PropTypes.shape({
-    Username: PropTypes.string.isRequired,
-    Password: PropTypes.string.isRequired,
-    Email: PropTypes.string.isRequired,
-  }),
-  onRegistration: PropTypes.func.isRequired,
-};
 
-export default RegistrationView;
+
+export default RegisterView;
