@@ -23134,7 +23134,7 @@ class Mainview extends _reactDefault.default.Component {
                 /*#__PURE__*/ _jsxRuntime.jsx(_reactRouterDom.Route, {
                     exact: true,
                     path: "/genres/:name",
-                    render: ({ match , history  })=>{
+                    render: ({ match  })=>{
                         if (!user) return(/*#__PURE__*/ _jsxRuntime.jsx(_loginView.LoginView, {
                             onLoggedIn: (user1)=>this.onLoggedIn(user1)
                         }));
@@ -23152,7 +23152,7 @@ class Mainview extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 150
+                        lineNumber: 151
                     },
                     __self: this
                 }),
@@ -23177,7 +23177,7 @@ class Mainview extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 169
+                        lineNumber: 170
                     },
                     __self: this
                 }),
@@ -23201,7 +23201,7 @@ class Mainview extends _reactDefault.default.Component {
                     },
                     __source: {
                         fileName: "src/components/main-view/main-view.jsx",
-                        lineNumber: 189
+                        lineNumber: 190
                     },
                     __self: this
                 })
@@ -41023,24 +41023,6 @@ class ProfileView extends _reactDefault.default.Component {
         }));
     }
 }
-ProfileView.propTypes = {
-    movies: PropTypes.arrayOf(PropTypes.shape({
-        Title: PropTypes.string.isRequired,
-        Description: PropTypes.string.isRequired,
-        ImagePath: PropTypes.string.isRequired,
-        Genre: PropTypes.shape({
-            Name: PropTypes.string.isRequired,
-            Description: PropTypes.string.isRequired
-        }).isRequired,
-        Director: PropTypes.shape({
-            Bio: PropTypes.string.isRequired,
-            Birth: PropTypes.string.isRequired,
-            Death: PropTypes.string.isRequired,
-            Name: PropTypes.string.isRequired
-        }).isRequired
-    })).isRequired,
-    onBackClick: PropTypes.func.isRequired
-};
 
   $parcel$ReactRefreshHelpers$58c6.postlude(module);
 } finally {
