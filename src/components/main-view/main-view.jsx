@@ -2,11 +2,12 @@ import React from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "../navbar-view/navbar-view";
-
+import { link } from 'react-router-dom';
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
+import { ProfileView } from "../profile-view/profile-view"
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap/Container";
@@ -145,12 +146,11 @@ export class Mainview extends React.Component {
                 />
               </Col>
             );
-          }}
-        />
+          }} />
         <Route
           exact
           path="/genres/:name"
-          render={({ match }) => {
+          render={({ match, history }) => {
             if (!user)
               return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
             if (movies.length === 0) return <div className="main-view" />;

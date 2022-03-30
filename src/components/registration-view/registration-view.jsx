@@ -14,7 +14,7 @@ import {
   FormLabel,
 } from "react-bootstrap";
 
-export function RegisterView(props) {
+export function RegistrationView(props) {
   const [username, setUsername] = useState("");
   const [password, setPassword] = useState("");
   const [email, setEmail] = useState("");
@@ -119,4 +119,4 @@ export function RegisterView(props) {
 }
 
 
-export default RegisterView;
+export default RegistrationView;
