@@ -39932,7 +39932,7 @@ class MovieCard extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","./movie-card.scss":"cF5gT","@parcel/transformer-js/src/esmodule-helpers.js":"dMHoh","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kNdWf","react-router-dom":"cpyQW"}],"cF5gT":[function() {},{}],"ikZdr":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","prop-types":"1tgq3","react-bootstrap/Button":"9CzHT","react-bootstrap/Card":"MoOk8","react-router-dom":"cpyQW","./movie-card.scss":"cF5gT","@parcel/transformer-js/src/esmodule-helpers.js":"dMHoh","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kNdWf"}],"cF5gT":[function() {},{}],"ikZdr":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$3741 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
@@ -40573,7 +40573,7 @@ $RefreshReg$(_c, "ProfileView");
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react":"6TuXu","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kNdWf","@parcel/transformer-js/src/esmodule-helpers.js":"dMHoh","axios":"iYoWk","react/jsx-runtime":"8xIwr","react-bootstrap/Button":"9CzHT","./user-data":"fwSkt","./update-user":"hBcEf","./favorite-movies":"gKhXS"}],"fwSkt":[function(require,module,exports) {
+},{"react/jsx-runtime":"8xIwr","react":"6TuXu","axios":"iYoWk","@parcel/transformer-js/src/esmodule-helpers.js":"dMHoh","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"kNdWf","react-bootstrap/Button":"9CzHT","./user-data":"fwSkt","./update-user":"hBcEf","./favorite-movies":"gKhXS"}],"fwSkt":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$b143 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;
