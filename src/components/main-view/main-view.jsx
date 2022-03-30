@@ -194,7 +194,7 @@ export class Mainview extends React.Component {
               return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
             if (movies.length === 0) return <div className="main-view" />;
             return (
-              <Col md={4}>
+              <Col md={10}>
                 <ProfileView
                   history={history}
                   movies={movies}
