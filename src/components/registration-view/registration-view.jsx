@@ -11,6 +11,7 @@ import {
   Container,
   Col,
   Row,
+  FormLabel,
 } from "react-bootstrap";
 
 export function RegisterView(props) {
@@ -69,78 +70,51 @@ export function RegisterView(props) {
           alert('Registration sussessful, please login.');
           window.open('/', '_self');
         })
-        .catch(response => {
-          console.error(response);
+        .catch(e => {
+          console.log('Could not Register');
           alert('Unable to register');
         });
     }
   };
 
   return (
-    <Container>
-      <Row>
-        <Col>
-          <CardGroup>
-            <Card>
-              <Card.Body>
-                <Card.Title>Register to get Access!</Card.Title>
-                <Form>
-                  <Form.Group>
-                    <Form.Label>Username</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value={username}
-                      onChange={(e) => setUsername(e.target.value)}
-                      required
-                      placeholder="Enter a Username"
-                    />
-                  </Form.Group>
+    <>
+      <h1>Registration</h1>
+      <Form className="mb-3">
+        <Form.Group controlId="formUsername" className="mb-3">
+          <Form.Label>Username*:</Form.Label>
+          <Form.Control type="text" onChange={e => setUsername(e.target.value)} />
+          {usernameErr && <p className="font-italic">{usernameErr}</p>}
+        </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>Password</Form.Label>
-                    <Form.Control
-                      type="password"
-                      value={password}
-                      onChange={(e) => setPassword(e.target.value)}
-                      required
-                      placeholder="Please enter a password!"
-                    />
-                  </Form.Group>
+        <Form.Group controlId="formPassword" className="mb-3">
+          <Form.Label>Password*:</Form.Label>
+          <Form.Control type="password" onChange={e => setPassword(e.target.value)} />
+          {passwordErr && <p className="font-italic">{passwordErr}</p>}
+        </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>Email</Form.Label>
-                    <Form.Control
-                      type="email"
-                      value={email}
-                      onChange={(e) => setEmail(e.target.value)}
-                      required
-                      placeholder="Enter your email address!"
-                    />
-                  </Form.Group>
-                  <Form.Group>
-                    <Form.Label>Birthday</Form.Label>
-                    <Form.Control
-                      type="text"
-                      value="{birthday"
-                      onChange={(e) => setBirthday(e.target.value)}
-                      placeholder="Enter your Birthday"
-                    />
-                  </Form.Group>
+        <Form.Group controlId="formEmail" className="mb-3">
+          <Form.Label>Email:*</Form.Label>
+          <Form.Control type="text" onChange={e => setEmail(e.target.value)} />
+          {emailErr && <p className="font-italic">{emailErr}</p>}
+        </Form.Group>
 
-                  <Button
-                    variant="primary"
-                    type="submit"
-                    onClick={handleSubmit}
-                  >
-                    Register
-                  </Button>
-                </Form>
-              </Card.Body>
-            </Card>
-          </CardGroup>
-        </Col>
-      </Row>
-    </Container>
+        <Form.Group controlId="formBirthday" className="mb-3">
+          <Form.Label>Birthday:</Form.Label>
+          <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
+        </Form.Group>
+
+        <Button variant="primary" type="submit" onClick={handlesubmit}>
+          Register
+        </Button>
+      </Form>
+      <p>
+        Already have an account?{' '}
+        <link to={'/'}>
+          <Button variant="link">Login!</Button>
+        </link>
+      </p>
+    </>
   );
 }
 
