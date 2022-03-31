@@ -44,7 +44,7 @@ export class ProfileView extends React.Component {
                     Password: response.data.Password,
                     Email: response.data.Email,
                     Birthday: response.data.Birthday,
-                    FavoriteMovies: response.data.FavoriteMovies,
+                    FavouriteMovies: response.data.FavoriteMovies,
                 });
             })
             .catch(function (error) {
@@ -87,7 +87,7 @@ export class ProfileView extends React.Component {
     };
 
     //Deletes a Movie from Favorite Movies List
-    onRemoveFavorite = (e, movie) => {
+    onRemoveFavourite = (e, movie) => {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
@@ -155,7 +155,7 @@ export class ProfileView extends React.Component {
     }
     render() {
         const { movies, onBackClick } = this.props;
-        const { FavoriteMovies, Username, Email, Birthday } = this.state;
+        const { FavouriteMovies, Username, Email, Birthday } = this.state;
 
         if (!Username) {
             return null;
@@ -234,21 +234,21 @@ export class ProfileView extends React.Component {
                 </Row>
                 <Row style={{ marginTop: "20px" }}>
                     <Col>
-                        <h4>{Username} Favorite Movies</h4>
+                        <h4>{Username} Favourite Movies</h4>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
                         <Card.Body>
-                            {FavoriteMovies.length === 0 && (
+                            {FavouriteMovies.length === 0 && (
                                 <div className="text-center">No Favorite Movies</div>
                             )}
                             <Row className="favorite-container">
-                                {FavoriteMovies.length > 0 &&
+                                {FavouriteMovies.length > 0 &&
                                     movies.map((movie) => {
                                         if (
                                             movie._id ===
-                                            FavoriteMovies.find((fav) => fav === movie._id)
+                                            FavouriteMovies.find((fav) => fav === movie._id)
                                         ) {
                                             return (
                                                 <Card className="favorite-movie card-content" key={movie._id} >

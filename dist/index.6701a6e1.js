@@ -40556,7 +40556,7 @@ class ProfileView extends _reactDefault.default.Component {
                 Password: response.data.Password,
                 Email: response.data.Email,
                 Birthday: response.data.Birthday,
-                FavoriteMovies: response.data.FavoriteMovies
+                FavouriteMovies: response.data.FavoriteMovies
             });
         }).catch(function(error) {
             console.log(error);
@@ -40591,7 +40591,7 @@ class ProfileView extends _reactDefault.default.Component {
         });
     };
     //Deletes a Movie from Favorite Movies List
-    onRemoveFavorite = (e, movie)=>{
+    onRemoveFavourite = (e, movie)=>{
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
@@ -40647,7 +40647,7 @@ class ProfileView extends _reactDefault.default.Component {
     }
     render() {
         const { movies , onBackClick  } = this.props;
-        const { FavoriteMovies , Username , Email , Birthday  } = this.state;
+        const { FavouriteMovies , Username , Email , Birthday  } = this.state;
         if (!Username) return null;
         return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Container, {
             className: "profile-view",
@@ -40887,7 +40887,7 @@ class ProfileView extends _reactDefault.default.Component {
                             __self: this,
                             children: [
                                 Username,
-                                " Favorite Movies"
+                                " Favourite Movies"
                             ]
                         })
                     })
@@ -40911,7 +40911,7 @@ class ProfileView extends _reactDefault.default.Component {
                             },
                             __self: this,
                             children: [
-                                FavoriteMovies.length === 0 && /*#__PURE__*/ _jsxRuntime.jsx("div", {
+                                FavouriteMovies.length === 0 && /*#__PURE__*/ _jsxRuntime.jsx("div", {
                                     className: "text-center",
                                     __source: {
                                         fileName: "src/components/profile-view/profile-view.jsx",
@@ -40927,8 +40927,8 @@ class ProfileView extends _reactDefault.default.Component {
                                         lineNumber: 246
                                     },
                                     __self: this,
-                                    children: FavoriteMovies.length > 0 && movies.map((movie)=>{
-                                        if (movie._id === FavoriteMovies.find((fav)=>fav === movie._id
+                                    children: FavouriteMovies.length > 0 && movies.map((movie)=>{
+                                        if (movie._id === FavouriteMovies.find((fav)=>fav === movie._id
                                         )) return(/*#__PURE__*/ _jsxRuntime.jsxs(_reactBootstrap.Card, {
                                             className: "favorite-movie card-content",
                                             __source: {
