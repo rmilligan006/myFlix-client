@@ -8,12 +8,14 @@ import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
 import { ProfileView } from "../profile-view/profile-view"
+import { DirectorView } from "../director-view/director-view";
+import { GenreView } from "../genre-view.jsx/genre-view";
 import Row from "react-bootstrap/Row";
 import Col from "react-bootstrap/Col";
-import Container from "react-bootstrap/Container";
+import Container from "react-bootstrap";
 //stylesheet for main-view
 import "./main-view.scss";
-import { Redirect } from "react-router-dom";
+import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
 
 export class Mainview extends React.Component {
   constructor() {
@@ -22,6 +24,7 @@ export class Mainview extends React.Component {
       movies: [],
       //Sets SelectedMovie to null in the beginning, will be used to open the MovieView component
       selectedMovie: null,
+      user: null
     };
   }
 
@@ -29,7 +32,7 @@ export class Mainview extends React.Component {
     let accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
       this.setState({
-        user: localStorage.getItem("user"),
+        user: localStorage.getItem('user'),
       });
       this.getMovies(accessToken);
     }
@@ -52,6 +55,13 @@ export class Mainview extends React.Component {
     localStorage.setItem("user", authData.user.Username);
     this.getMovies(authData.token);
   }
+  onLoggedOut() {
+    localStorage.removeItem("token");
+    localStorage.removeItem("user");
+    this.setState({
+      user: null,
+    });
+  }
 
   getMovies(token) {
     axios
@@ -69,13 +79,7 @@ export class Mainview extends React.Component {
       });
   }
 
-  onLoggedOut() {
-    localStorage.removeItem("token");
-    localStorage.removeItem("user");
-    this.setState({
-      user: null,
-    });
-  }
+
 
   render() {
     const { movies, user } = this.state;

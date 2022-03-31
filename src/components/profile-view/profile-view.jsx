@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import propTypes from 'prop-types';
+import PropTypes from 'prop-types';
 import './profile-view.scss'
 import { Link } from 'react-router-dom';
 import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
@@ -110,8 +110,9 @@ export class ProfileView extends React.Component {
 
     //Deregister the user
     onDeleteUser() {
+        const token = localStorage.getItem('token');
         const Username = localStorage.getItem('user');
-        const token = localStorage.getItem(token);
+
 
         axios
             .delete(`https://rmilligansmovieapp.herokuapp.com/users/${Username}`, {
@@ -271,7 +272,7 @@ export class ProfileView extends React.Component {
                     </Col>
                 </Row>
                 <div className="backButton">
-                    <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
+                    <Button variant="outline-primary" onClick={() => { onBackClick(); }}>Back</Button>
                 </div>
                 <br />
             </Container>

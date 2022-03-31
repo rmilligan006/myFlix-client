@@ -1,5 +1,5 @@
 import React from "react";
-import PropTypes from "prop-types";
+import propTypes from "prop-types";
 import { Card, Col, Container, Row, Button } from "react-bootstrap";
 //MovieView stylesheet
 import "./movie-view.scss";

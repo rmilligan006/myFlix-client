@@ -3,16 +3,7 @@ import axios from 'axios';
 import propTypes from 'prop-types';
 //registration stylesheet
 import "./registration-view.scss";
-import {
-  Form,
-  Button,
-  Card,
-  CardGroup,
-  Container,
-  Col,
-  Row,
-  FormLabel,
-} from "react-bootstrap";
+import { Form, Button } from 'react-bootstrap'
 
 export function RegistrationView(props) {
   const [username, setUsername] = useState("");
@@ -58,7 +49,7 @@ export function RegistrationView(props) {
     const isReq = validate();
     if (isReq) {
       //send a request to the server for authentication
-      axios.post('https://rmilligansmovieapp.herokuapp.com/login', {
+      axios.post('https://rmilligansmovieapp.herokuapp.com/register', {
         Username: username,
         Password: password,
         Email: email,
@@ -119,4 +110,4 @@ export function RegistrationView(props) {
 }
 
 
-export default RegistrationView;
+
