@@ -51,11 +51,14 @@ export class ProfileView extends React.Component {
                 console.log(error);
             });
     };
+
+
     //Allows the user to edit their profile
     editUser = (e) => {
         e.preventDefault();
-        const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
+        const Username = localStorage.getItem('user');
+
 
         axios
             .put(`https://rmilligansmovieapp.herokuapp.com/users/${Username}`,
@@ -271,9 +274,7 @@ export class ProfileView extends React.Component {
                         </Card.Body>
                     </Col>
                 </Row>
-                <div className="backButton">
-                    <Button variant="outline-primary" onClick={() => { onBackClick(); }}>Back</Button>
-                </div>
+
                 <br />
             </Container>
         );

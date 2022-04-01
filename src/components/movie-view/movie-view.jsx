@@ -51,7 +51,7 @@ export class MovieView extends React.Component {
                 </Card.Body>
               </Card>
               <Button
-                id="movie-view-button"
+                id="return-button"
                 onClick={() => {
                   onBackClick(null);
                 }}

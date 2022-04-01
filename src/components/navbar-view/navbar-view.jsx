@@ -1,6 +1,6 @@
 import React from "react";
 import "./navbar-view.scss";
-
+import { Link } from 'react-router-dom';
 import {
   Navbar,
   Container,
@@ -19,26 +19,20 @@ export function NavbarView({ user }) {
   };
 
   return (
-    <Navbar  bg="" expand="lg">
+    <Navbar bg="" expand="lg">
       <Container>
-        <Navbar.Brand href="#home">myFlix</Navbar.Brand>
+        <Navbar.Brand href="/">myFlix</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="me-auto">
-            <Nav.Link href="#home">Home</Nav.Link>
-            <Nav.Link href="#link">Movies</Nav.Link>
-            <NavDropdown title="" id="basic-nav-dropdown">
-              <NavDropdown.Item href="#action/3.1">Watchlist</NavDropdown.Item>
-              <NavDropdown.Item href="#action/3.2">
-                Profile
-              </NavDropdown.Item>
-              <NavDropdown.Divider />
-              <NavDropdown.Item href="#action/3.4">
-                Log out
-              </NavDropdown.Item>
-            </NavDropdown>
+            <Nav.Link href="/">Movie List</Nav.Link>
+            <Nav.Link href="/users/:username">Profile</Nav.Link>
+            <Button variant="link" onClick={() => {
+              onLoggedOut()
+            }}>Logout</Button>
+
           </Nav>
-         
+
         </Navbar.Collapse>
       </Container>
     </Navbar>

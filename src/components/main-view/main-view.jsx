@@ -2,7 +2,7 @@ import React from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
 import Navbar from "../navbar-view/navbar-view";
-
+import { Redirect } from 'react-router';
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
 import { MovieView } from "../movie-view/movie-view";
@@ -15,7 +15,7 @@ import Col from "react-bootstrap/Col";
 import Container from "react-bootstrap";
 //stylesheet for main-view
 import "./main-view.scss";
-import { BrowserRouter as Router, Route, Redirect } from "react-router-dom";
+
 
 export class Mainview extends React.Component {
   constructor() {
@@ -84,15 +84,6 @@ export class Mainview extends React.Component {
   render() {
     const { movies, user } = this.state;
 
-    if (!user)
-      return (
-        <Row>
-          <Col>
-            <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
-          </Col>
-        </Row>
-      );
-    if (movies.length === 0) return <div className="main-view" />;
 
     return (
       <Router>
@@ -155,18 +146,13 @@ export class Mainview extends React.Component {
         <Route
           exact
           path="/genres/:name"
-          render={({ match }) => {
+          render={({ match, history }) => {
             if (!user)
               return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
             if (movies.length === 0) return <div className="main-view" />;
             return (
-              <Col md={8}>
-                <GenreView
-                  genre={
-                    movies.find((m) => m.Genre.Name === match.params.name).Genre
-                  }
-                  onBackClick={() => history.goBack()}
-                />
+              <Col xs={12} md={10}>
+                <GenreView movies={movies} genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
               </Col>
             );
           }}

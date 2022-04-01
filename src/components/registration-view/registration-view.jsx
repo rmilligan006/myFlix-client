@@ -1,15 +1,16 @@
 import React, { useState } from "react";
 import axios from 'axios';
 import propTypes from 'prop-types';
+import { Redirect } from 'react-router';
 //registration stylesheet
 import "./registration-view.scss";
 import { Form, Button } from 'react-bootstrap'
-
+import { Link } from 'react-router-dom';
 export function RegistrationView(props) {
-  const [username, setUsername] = useState("");
-  const [password, setPassword] = useState("");
-  const [email, setEmail] = useState("");
-  const [birthday, setBirthday] = useState("");
+  const [username, setUsername] = useState('');
+  const [password, setPassword] = useState('');
+  const [email, setEmail] = useState('');
+  const [birthday, setBirthday] = useState('');
 
   //Declaring a Hook for each input
   const [usernameErr, setUsernameErr] = useState('');
@@ -19,21 +20,21 @@ export function RegistrationView(props) {
   //validate user inputs
   const validate = () => {
     let isReq = true;
-    if (!Username) {
+    if (!username) {
       setUsernameErr('Username required');
       isReq = false;
     } else if (username.length < 2) {
       setUsernameErr('Username must be at least two characters long');
       isReq = false;
     }
-    if (!Password) {
+    if (!password) {
       setPasswordErr('Password Required');
       isReq = false;
     } else if (password.length < 6) {
       setPassword('Password must be at least 6 characters long');
       isReq = false;
     }
-    if (!Email) {
+    if (!email) {
       setEmailErr('Email required');
       isReq = false;
     } else if (email.indexOf('@') === -1) {
@@ -49,7 +50,7 @@ export function RegistrationView(props) {
     const isReq = validate();
     if (isReq) {
       //send a request to the server for authentication
-      axios.post('https://rmilligansmovieapp.herokuapp.com/register', {
+      axios.post('https://rmilligansmovieapp.herokuapp.com/users', {
         Username: username,
         Password: password,
         Email: email,
@@ -57,12 +58,11 @@ export function RegistrationView(props) {
       })
         .then(response => {
           const data = response.data;
-          console.log(data);
-          alert('Registration sussessful, please login.');
+          alert('Registration successful!');
           window.open('/', '_self');
         })
         .catch(e => {
-          console.log('Could not Register');
+          console.log('Could not register');
           alert('Unable to register');
         });
     }
@@ -95,15 +95,16 @@ export function RegistrationView(props) {
           <Form.Control type="date" onChange={e => setBirthday(e.target.value)} />
         </Form.Group>
 
-        <Button variant="primary" type="submit" onClick={handlesubmit}>
+        <Button variant="primary" type="submit" onClick={handleSubmit}>
           Register
         </Button>
       </Form>
       <p>
         Already have an account?{' '}
-        <link to={'/'}>
+        <Link to={'/'}>
           <Button variant="link">Login!</Button>
-        </link>
+        </Link>
+
       </p>
     </>
   );
