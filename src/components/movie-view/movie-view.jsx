@@ -1,7 +1,10 @@
+
+
 import React from "react";
 import propTypes from "prop-types";
 import { Card, Col, Container, Row, Button } from "react-bootstrap";
-import { link } from 'react-router-dom';
+import { link } from "react-router-dom";
+import axios from "axios";
 //MovieView stylesheet
 import "./movie-view.scss";
 
@@ -17,6 +20,28 @@ export class MovieView extends React.Component {
   componentWillUnmount() {
     document.removeEventListener("keypress", this.keypressCallback);
   }
+
+  addFavorite = (e, movie) => {
+    e.preventDefault();
+    const username = localStorage.getItem("user");
+    const token = localStorage.getItem("token");
+
+    axios
+      .post(
+        `https://rmilligansmovieapp.herokuapp.com/users/${username}/movies/${movie._id}`,
+        {},
+        {
+          headers: { Authorization: `Bearer ${token}` },
+        }
+      )
+      .then((response) => {
+        console.log(response);
+        alert("Favorite has been added!");
+      })
+      .catch(function (error) {
+        console.log(error);
+      });
+  };
 
   render() {
     const { movie, onBackClick } = this.props;
@@ -58,7 +83,12 @@ export class MovieView extends React.Component {
               >
                 Back
               </Button>
-              <Button id="movie-view-button" onClick={() => { }}>
+              <Button
+                id="movie-view-button"
+                onClick={(e) => {
+                  this.addFavorite(e, movie);
+                }}
+              >
                 Add to Favorites
               </Button>
             </Col>
