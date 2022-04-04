@@ -89,7 +89,7 @@ export class Mainview extends React.Component {
       <Router>
         <Navbar user={user} />
         <Route
-          path="/movies/:movieID"
+          path="/movies/:movieId"
           render={({ match }) => {
             return (
               <Col md={8}>
