@@ -56,7 +56,7 @@ export class MovieView extends React.Component {
                     variant="top"
                     src={movie.ImagePath}
                   />
-                  <Card.Title id="movie-Title" className="movie-title">
+                  <Card.Title id="movie-title" className="movie-title">
                     {movie.Title}
                   </Card.Title>
                   <Card.Text

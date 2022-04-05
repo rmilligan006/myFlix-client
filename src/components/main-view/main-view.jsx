@@ -1,7 +1,7 @@
 import React from "react";
 import axios from "axios";
 import { BrowserRouter as Router, Route } from "react-router-dom";
-import Navbar from "../navbar-view/navbar-view";
+import {NavbarView } from "../navbar-view/navbar-view";
 import { Redirect } from 'react-router';
 import { LoginView } from "../login-view/login-view";
 import { MovieCard } from "../movie-card/movie-card";
@@ -87,7 +87,7 @@ export class Mainview extends React.Component {
 
     return (
       <Router>
-        <Navbar user={user} />
+        <NavbarView user={user} />
         <Route
           path="/movies/:movieId"
           render={({ match }) => {
@@ -135,10 +135,7 @@ export class Mainview extends React.Component {
             if (movies.length === 0) return <div className="main-view" />;
             return (
               <Col md={8}>
-                <MovieView
-                  movie={movies.find((m) => m._Id === match.params.MovieId)}
-                  onBackClick={() => history.goBack()}
-                />
+               <MovieView movie={movies.find((m) => m._Id === match.params.movieId)} onBackClick={() => history.goBack()} />
               </Col>
             );
           }}
