@@ -1,6 +1,6 @@
 import React from 'react';
 import axios from 'axios';
-import PropTypes from 'prop-types';
+import propTypes from 'prop-types';
 import './profile-view.scss'
 import { Link } from 'react-router-dom';
 import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
@@ -44,21 +44,18 @@ export class ProfileView extends React.Component {
                     Password: response.data.Password,
                     Email: response.data.Email,
                     Birthday: response.data.Birthday,
-                    FavouriteMovies: response.data.FavoriteMovies,
+                    FavoriteMovies: response.data.FavoriteMovies,
                 });
             })
             .catch(function (error) {
                 console.log(error);
             });
     };
-
-
     //Allows the user to edit their profile
     editUser = (e) => {
         e.preventDefault();
-        const token = localStorage.getItem('token');
         const Username = localStorage.getItem('user');
-
+        const token = localStorage.getItem('token');
 
         axios
             .put(`https://rmilligansmovieapp.herokuapp.com/users/${Username}`,
@@ -90,7 +87,7 @@ export class ProfileView extends React.Component {
     };
 
     //Deletes a Movie from Favorite Movies List
-    onRemoveFavourite = (e, movie) => {
+    onRemoveFavorite = (e, movie) => {
         e.preventDefault();
         const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
@@ -113,9 +110,8 @@ export class ProfileView extends React.Component {
 
     //Deregister the user
     onDeleteUser() {
-        const token = localStorage.getItem('token');
         const Username = localStorage.getItem('user');
-
+        const token = localStorage.getItem(token);
 
         axios
             .delete(`https://rmilligansmovieapp.herokuapp.com/users/${Username}`, {
@@ -158,7 +154,7 @@ export class ProfileView extends React.Component {
     }
     render() {
         const { movies, onBackClick } = this.props;
-        const { FavouriteMovies, Username, Email, Birthday } = this.state;
+        const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
         if (!Username) {
             return null;
@@ -237,21 +233,21 @@ export class ProfileView extends React.Component {
                 </Row>
                 <Row style={{ marginTop: "20px" }}>
                     <Col>
-                        <h4>{Username} Favourite Movies</h4>
+                        <h4>{Username} Favorite Movies</h4>
                     </Col>
                 </Row>
                 <Row>
                     <Col>
                         <Card.Body>
-                            {FavouriteMovies.length === 0 && (
+                            {FavoriteMovies.length === 0 && (
                                 <div className="text-center">No Favorite Movies</div>
                             )}
                             <Row className="favorite-container">
-                                {FavouriteMovies.length > 0 &&
+                                {FavoriteMovies.length > 0 &&
                                     movies.map((movie) => {
                                         if (
                                             movie._id ===
-                                            FavouriteMovies.find((fav) => fav === movie._id)
+                                            FavoriteMovies.find((fav) => fav === movie._id)
                                         ) {
                                             return (
                                                 <Card className="favorite-movie card-content" key={movie._id} >
@@ -264,7 +260,7 @@ export class ProfileView extends React.Component {
                                                         <Card.Title className="movie_title">
                                                             {movie.Title}
                                                         </Card.Title>
-                                                        <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavourite(e, movie)}>Remove</Button>
+                                                        <Button size="sm" variant="danger" value={movie._id} onClick={(e) => this.onRemoveFavorite(e, movie)}>Remove</Button>
                                                     </Card.Body>
                                                 </Card>
                                             );
@@ -274,7 +270,9 @@ export class ProfileView extends React.Component {
                         </Card.Body>
                     </Col>
                 </Row>
-
+                <div className="backButton">
+                    <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
+                </div>
                 <br />
             </Container>
         );
