@@ -89,9 +89,8 @@ export class ProfileView extends React.Component {
     //Deletes a Movie from Favorite Movies List
     onRemoveFavorite = (e, movie) => {
         e.preventDefault();
-        const Username = localStorage.getItem('user');
         const token = localStorage.getItem('token');
-
+        const Username = localStorage.getItem('user');
         axios
             .delete(`https://rmilligansmovieapp.herokuapp.com/users/${Username}/movies/${movie._id}`,
                 {
@@ -111,7 +110,7 @@ export class ProfileView extends React.Component {
     //Deregister the user
     onDeleteUser() {
         const Username = localStorage.getItem('user');
-        const token = localStorage.getItem(token);
+        const token = localStorage.getItem('token');
 
         axios
             .delete(`https://rmilligansmovieapp.herokuapp.com/users/${Username}`, {
