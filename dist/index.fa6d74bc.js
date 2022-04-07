@@ -39327,7 +39327,7 @@ class MovieView extends _reactDefault.default.Component {
     render() {
         const { movie , onBackClick  } = this.props;
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
-            children: movie && onBackClick(/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
+            children: movie && onBackClick && /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
                 children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Col, {
                     children: [
                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card, {
@@ -39428,7 +39428,7 @@ class MovieView extends _reactDefault.default.Component {
                 fileName: "Desktop/myFlix-client/src/components/movie-view/movie-view.jsx",
                 lineNumber: 50,
                 columnNumber: 11
-            }, this))
+            }, this)
         }, void 0, false, {
             fileName: "Desktop/myFlix-client/src/components/movie-view/movie-view.jsx",
             lineNumber: 48,

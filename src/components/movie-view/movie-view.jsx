@@ -46,7 +46,7 @@ export class MovieView extends React.Component {
 
     return (
       <Container>
-        {movie && onBackClick (
+        {movie && onBackClick && (
           <Row>
             <Col>
               <Card id="movie-view">
