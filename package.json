@@ -4,7 +4,8 @@
   "description": "",
   "source": "src/index.html",
   "scripts": {
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "test": "echo \"Error: no test specified\" && exit 1",
+    "start": "parcel", "build": "parcel build"
   },
   "repository": {
     "type": "git",
@@ -28,6 +29,7 @@
     "redux-devtools-extension": "^2.13.9"
   },
   "devDependencies": {
-    "@parcel/transformer-sass": "^2.0.0-rc.0"
+    "@parcel/transformer-sass": "^2.4.1",
+    "parcel": "^2.4.1"
   }
 }
