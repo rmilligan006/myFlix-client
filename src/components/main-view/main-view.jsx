@@ -1,6 +1,13 @@
 import React from "react";
 import axios from "axios";
+
+import { connect } from "react-redux";
 import { BrowserRouter as Router, Route } from "react-router-dom";
+
+import { setMovies } from "../../actions/actions";
+
+import MoviesList from '../movies-list/movies-list';
+
 import {NavbarView } from "../navbar-view/navbar-view";
 import { Redirect } from 'react-router';
 import { LoginView } from "../login-view/login-view";
@@ -17,13 +24,10 @@ import Container from "react-bootstrap";
 import "./main-view.scss";
 
 
-export class Mainview extends React.Component {
+class Mainview extends React.Component {
   constructor() {
     super();
     this.state = {
-      movies: [],
-      //Sets SelectedMovie to null in the beginning, will be used to open the MovieView component
-      selectedMovie: null,
       user: null
     };
   }
@@ -70,9 +74,7 @@ export class Mainview extends React.Component {
       })
       .then((response) => {
         // Assign the result to the state
-        this.setState({
-          movies: response.data,
-        });
+        this.props.setMovies(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -82,7 +84,8 @@ export class Mainview extends React.Component {
 
 
   render() {
-    const { movies, user } = this.state;
+    let { movies } = this.props;
+    let { user } = this.state;
 
 
     return (
@@ -100,20 +103,18 @@ export class Mainview extends React.Component {
             );
           }}
         />
-        <Route
-          exact
-          path="/"
-          render={() => {
-            if (!user)
-              return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
-            if (movies.length === 0) return <div className="main-view" />;
-            return movies.map((m) => (
-              <Col md={10} key={m._id}>
-                <MovieCard movie={m} />
-              </Col>
-            ));
-          }}
-        />
+       <Route exact path="/" render={() => {
+                        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
+                        if (!user) return (
+                            <Col>
+                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
+                            </Col>
+                        );
+
+                        if (movies.length === 0) return <div className="main-view" />;
+
+                        return <MoviesList movies={movies} />;
+                    }} />
         <Route
           path="/register"
           render={() => {
@@ -134,8 +135,8 @@ export class Mainview extends React.Component {
               return <LoginView OnLoggedIn={(user) => this.onLoggedIn(user)} />;
             if (movies.length === 0) return <div className="main-view" />;
             return (
-              <Col md={8}>
-               <MovieView movie={movies.find((m) => m._Id === match.params.movieId)} onBackClick={() => history.goBack()} />
+              <Col md={6}>
+               <MovieView movie={movies.find((m) => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
               </Col>
             );
           }}
@@ -194,6 +195,11 @@ export class Mainview extends React.Component {
       </Router>
     );
   }
+
 }
 
-export default Mainview;
+let mapStateToProps = state => {
+  return { movies: state.movies }
+}
+
+export default  connect(mapStateToProps, { setMovies } )  (Mainview);

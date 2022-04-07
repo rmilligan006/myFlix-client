@@ -11,10 +11,10 @@ export class ProfileView extends React.Component {
         super();
 
         this.state = {
-            Username: null,
-            Password: null,
-            Email: null,
-            Birthday: null,
+            Username: '',
+            Password: '',
+            Email: '',
+            Birthday: '',
             FavoriteMovies: [],
         };
     }
@@ -152,7 +152,7 @@ export class ProfileView extends React.Component {
         });
     }
     render() {
-        const { movies, onBackClick } = this.props;
+        const {  onBackClick, movies } = this.props;
         const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
         if (!Username) {
@@ -269,10 +269,7 @@ export class ProfileView extends React.Component {
                         </Card.Body>
                     </Col>
                 </Row>
-                <div className="backButton">
-                    <Button variant="outline-primary" onClick={() => { onBackClick(null); }}>Back</Button>
-                </div>
-                <br />
+                
             </Container>
         );
     }
