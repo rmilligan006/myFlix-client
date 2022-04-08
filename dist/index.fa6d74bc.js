@@ -26679,7 +26679,7 @@ class Mainview extends _reactDefault.default.Component {
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactRouterDom.Route, {
-                    path: "/users/:username",
+                    path: "/users/:Username",
                     render: ({ history , match  })=>{
                         if (!user1) return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_loginView.LoginView, {
                             onLoggedIn: (user)=>this.onLoggedIn(user)

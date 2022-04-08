@@ -176,7 +176,7 @@ class Mainview extends React.Component {
           }}
         />
         <Route
-          path="/users/:username"
+          path="/users/:Username"
           render={({ history, match }) => {
             if (!user)
               return <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />;
