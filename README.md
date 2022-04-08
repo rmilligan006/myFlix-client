@@ -2,6 +2,8 @@
 
 netlify: [![Netlify Status](https://api.netlify.com/api/v1/badges/911478ec-4bed-4f90-8a38-5657223bce4e/deploy-status)](https://app.netlify.com/sites/rmilligans-movie-app/deploys)
 
+https://rmilligans-movie-app.netlify.app/
+
 Client side data for project
 
 myFlix 
