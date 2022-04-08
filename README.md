@@ -1,4 +1,7 @@
 # myFlix-client
+
+netlify: [![Netlify Status](https://api.netlify.com/api/v1/badges/911478ec-4bed-4f90-8a38-5657223bce4e/deploy-status)](https://app.netlify.com/sites/rmilligans-movie-app/deploys)
+
 Client side data for project
 
 myFlix 
@@ -30,5 +33,4 @@ Authors:
 Ryan Milligan,
 
 version history: 
-0.1 
-    initial release. 
+
