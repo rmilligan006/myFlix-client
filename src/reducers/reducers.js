@@ -54,7 +54,7 @@ function user(
 let moviesApp = combineReducers({
   visibilityFilter,
   movies,
-  user,
+  user
 });
 
 export default moviesApp;
