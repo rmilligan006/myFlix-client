@@ -26373,9 +26373,30 @@ function movies(state = [], action) {
             return state;
     }
 }
+function user(state = {
+    Username: "",
+    Password: "",
+    Email: "",
+    Birthday: "",
+    FavoriteMovies: []
+}, action) {
+    const { field , value  } = action;
+    switch(action.type){
+        case _actions.SET_USER:
+            return value;
+        case _actions.UPDATE_USER:
+            return {
+                ...state,
+                [field]: value
+            };
+        default:
+            return state;
+    }
+}
 let moviesApp = _redux.combineReducers({
     visibilityFilter,
-    movies
+    movies,
+    user
 });
 exports.default = moviesApp;
 
@@ -26386,12 +26407,22 @@ parcelHelpers.export(exports, "SET_MOVIES", ()=>SET_MOVIES
 );
 parcelHelpers.export(exports, "SET_FILTER", ()=>SET_FILTER
 );
+parcelHelpers.export(exports, "SET_USER", ()=>SET_USER
+);
+parcelHelpers.export(exports, "UPDATE_USER", ()=>UPDATE_USER
+);
 parcelHelpers.export(exports, "setMovies", ()=>setMovies
 );
 parcelHelpers.export(exports, "setFilter", ()=>setFilter
 );
+parcelHelpers.export(exports, "setUser", ()=>setUser
+);
+parcelHelpers.export(exports, "updateUser", ()=>updateUser
+);
 const SET_MOVIES = "SET_MOVIES";
 const SET_FILTER = "SET_FILTER";
+const SET_USER = "SET_USER";
+const UPDATE_USER = "UPDATE_USER";
 function setMovies(value) {
     return {
         type: SET_MOVIES,
@@ -26402,6 +26433,25 @@ function setFilter(value) {
     return {
         type: SET_FILTER,
         value
+    };
+}
+function setUser(value) {
+    return {
+        type: SET_USER,
+        value
+    };
+}
+function updateUser(value = {
+    Username: "",
+    Password: "",
+    Email: "",
+    Birthday: "",
+    Favorites: []
+}, field = null) {
+    return {
+        type: UPDATE_USER,
+        value,
+        field
     };
 }
 
@@ -26427,8 +26477,7 @@ var _moviesListDefault = parcelHelpers.interopDefault(_moviesList);
 var _navbarView = require("../navbar-view/navbar-view");
 var _reactRouter = require("react-router");
 var _loginView = require("../login-view/login-view");
-var _movieCard = require("../movie-card/movie-card");
-var _movieView = require("../movie-view/movie-view");
+/*import { MovieCard } from "../movie-card/movie-card";*/ var _movieView = require("../movie-view/movie-view");
 var _registrationView = require("../registration-view/registration-view");
 var _profileView = require("../profile-view/profile-view");
 var _directorView = require("../director-view/director-view");
@@ -26674,7 +26723,7 @@ exports.default = _reactRedux.connect(mapStateToProps, {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"M7HXa","react":"232cl","axios":"2zO1V","react-redux":"k20y7","react-router-dom":"jYiae","../../actions/actions":"lbcc9","../movies-list/movies-list":"3jzDw","../navbar-view/navbar-view":"bI9rD","react-router":"5O9Wg","../login-view/login-view":"fToRD","../movie-card/movie-card":"kCLzh","../movie-view/movie-view":"48z3Y","../registration-view/registration-view":"6vDCI","../profile-view/profile-view":"8IlsP","../director-view/director-view":"42oS2","../genre-view.jsx/genre-view":"kVqk8","react-bootstrap/Row":"9VQzY","react-bootstrap/Col":"bXcyc","react-bootstrap":"6xQCG","./main-view.scss":"9CIrv","@parcel/transformer-js/src/esmodule-helpers.js":"lG0AS","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"i9xR9"}],"2zO1V":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"M7HXa","react":"232cl","axios":"2zO1V","react-redux":"k20y7","react-router-dom":"jYiae","../../actions/actions":"lbcc9","../movies-list/movies-list":"3jzDw","../navbar-view/navbar-view":"bI9rD","react-router":"5O9Wg","../login-view/login-view":"fToRD","../movie-view/movie-view":"48z3Y","../registration-view/registration-view":"6vDCI","../profile-view/profile-view":"8IlsP","../director-view/director-view":"42oS2","../genre-view.jsx/genre-view":"kVqk8","react-bootstrap/Row":"9VQzY","react-bootstrap/Col":"bXcyc","react-bootstrap":"6xQCG","./main-view.scss":"9CIrv","@parcel/transformer-js/src/esmodule-helpers.js":"lG0AS","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"i9xR9"}],"2zO1V":[function(require,module,exports) {
 module.exports = require('./lib/axios');
 
 },{"./lib/axios":"6w6Dj"}],"6w6Dj":[function(require,module,exports) {

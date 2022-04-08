@@ -5,15 +5,20 @@
   font-family: Oxygen, sans-serif;
 }
 
-.primary {
-  color: red;
-}
+
 
 * {
   box-sizing: border-box;
   color: #0a043c;
   background-color: #effffd;
   font-family: Oxygen, sans-serif;
+}
+
+.button {
+  border: 1px solid #e1e4e8;
+  border-radius: 10px;
+  padding: 3px 10px;
+  font-size: 12px;
 }
 
 * {
@@ -35,7 +40,7 @@
 }
 
 .my-flix {
-  color: #4682b4;
+  color: #000;
 }
 
 /*# sourceMappingURL=index.6cd4a3e8.css.map */
