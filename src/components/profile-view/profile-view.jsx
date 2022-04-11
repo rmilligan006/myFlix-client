@@ -11,11 +11,7 @@ export class ProfileView extends React.Component {
     super();
 
     this.state = {
-      Username: "",
-      Password: "",
-      Email: "",
-      Birthday: "",
-      FavoriteMovies: [],
+      user: null,
     };
   }
 
@@ -301,7 +297,7 @@ export class ProfileView extends React.Component {
 }
 
 let mapStateToProps = (state) => {
-  return { user: state.user };
+  return { user: state.user, movies: state.movies };
 };
 
-export default connect(mapStateToProps, { setUser })(ProfileView);
+export default connect(mapStateToProps, { setUser, updateUser })(ProfileView);
