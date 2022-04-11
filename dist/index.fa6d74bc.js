@@ -39780,6 +39780,7 @@ var _propTypesDefault = parcelHelpers.interopDefault(_propTypes);
 var _profileViewScss = require("./profile-view.scss");
 var _reactRouterDom = require("react-router-dom");
 var _reactBootstrap = require("react-bootstrap");
+var _actions = require("../../actions/actions");
 class ProfileView extends _reactDefault.default.Component {
     constructor(){
         super();
@@ -39798,7 +39799,7 @@ class ProfileView extends _reactDefault.default.Component {
     onLoggedOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        this.setState({
+        this.setUser({
             user: null
         });
         window.open('/', '_self');
@@ -39810,7 +39811,7 @@ class ProfileView extends _reactDefault.default.Component {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            this.setState({
+            this.setUser({
                 Username: response.data.Username,
                 Password: response.data.Password,
                 Email: response.data.Email,
@@ -39836,7 +39837,7 @@ class ProfileView extends _reactDefault.default.Component {
                 Authorization: `Bearer ${token}`
             }
         }).then((response)=>{
-            this.setState({
+            this.setUser({
                 Username: response.data.Username,
                 Password: response.data.Password,
                 Email: response.data.Email,
@@ -39905,7 +39906,7 @@ class ProfileView extends _reactDefault.default.Component {
         });
     }
     render() {
-        const { onBackClick , movies  } = this.props;
+        const { onBackClick  } = this.props;
         const { FavoriteMovies , Username , Email , Birthday  } = this.state;
         if (!Username) return null;
         return /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Container, {
@@ -40222,7 +40223,7 @@ class ProfileView extends _reactDefault.default.Component {
   window.$RefreshReg$ = prevRefreshReg;
   window.$RefreshSig$ = prevRefreshSig;
 }
-},{"react/jsx-dev-runtime":"M7HXa","react":"232cl","axios":"2zO1V","prop-types":"1Ps7J","./profile-view.scss":"1PalW","react-router-dom":"jYiae","react-bootstrap":"6xQCG","@parcel/transformer-js/src/esmodule-helpers.js":"lG0AS","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"i9xR9"}],"1PalW":[function() {},{}],"42oS2":[function(require,module,exports) {
+},{"react/jsx-dev-runtime":"M7HXa","react":"232cl","axios":"2zO1V","prop-types":"1Ps7J","./profile-view.scss":"1PalW","react-bootstrap":"6xQCG","@parcel/transformer-js/src/esmodule-helpers.js":"lG0AS","@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js":"i9xR9","../../actions/actions":"lbcc9","react-router-dom":"jYiae"}],"1PalW":[function() {},{}],"42oS2":[function(require,module,exports) {
 var $parcel$ReactRefreshHelpers$d750 = require("@parcel/transformer-react-refresh-wrap/lib/helpers/helpers.js");
 var prevRefreshReg = window.$RefreshReg$;
 var prevRefreshSig = window.$RefreshSig$;

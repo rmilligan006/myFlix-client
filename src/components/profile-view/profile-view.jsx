@@ -4,7 +4,7 @@ import propTypes from 'prop-types';
 import './profile-view.scss'
 import { Link } from 'react-router-dom';
 import { Container, Card, Button, Row, Col, Form } from 'react-bootstrap';
-
+import { setUser, updateUser } from '../../actions/actions';
 
 export class ProfileView extends React.Component {
     constructor() {
@@ -27,7 +27,7 @@ export class ProfileView extends React.Component {
     onLoggedOut() {
         localStorage.removeItem('token');
         localStorage.removeItem('user');
-        this.setState({
+        this.setUser({
             user: null,
         });
         window.open('/', '_self');
@@ -39,7 +39,7 @@ export class ProfileView extends React.Component {
                 headers: { Authorization: `Bearer ${token}` },
             })
             .then((response) => {
-                this.setState({
+                this.setUser({
                     Username: response.data.Username,
                     Password: response.data.Password,
                     Email: response.data.Email,
@@ -70,7 +70,7 @@ export class ProfileView extends React.Component {
                 }
             )
             .then((response) => {
-                this.setState({
+                this.setUser({
                     Username: response.data.Username,
                     Password: response.data.Password,
                     Email: response.data.Email,
@@ -152,7 +152,7 @@ export class ProfileView extends React.Component {
         });
     }
     render() {
-        const {  onBackClick, movies } = this.props;
+        const {  onBackClick } = this.props;
         const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
         if (!Username) {
@@ -274,5 +274,4 @@ export class ProfileView extends React.Component {
         );
     }
 }
-
 
