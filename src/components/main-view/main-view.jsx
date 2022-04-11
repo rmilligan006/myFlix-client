@@ -6,15 +6,15 @@ import { BrowserRouter as Router, Route } from "react-router-dom";
 
 import { setMovies } from "../../actions/actions";
 
-import MoviesList from '../movies-list/movies-list';
+import MoviesList from "../movies-list/movies-list";
 
-import {NavbarView } from "../navbar-view/navbar-view";
-import { Redirect } from 'react-router';
+import { NavbarView } from "../navbar-view/navbar-view";
+import { Redirect } from "react-router";
 import { LoginView } from "../login-view/login-view";
 /*import { MovieCard } from "../movie-card/movie-card";*/
 import { MovieView } from "../movie-view/movie-view";
 import { RegistrationView } from "../registration-view/registration-view";
-import { ProfileView } from "../profile-view/profile-view"
+import { ProfileView } from "../profile-view/profile-view";
 import { DirectorView } from "../director-view/director-view";
 import { GenreView } from "../genre-view.jsx/genre-view";
 import Row from "react-bootstrap/Row";
@@ -23,12 +23,11 @@ import Container from "react-bootstrap";
 //stylesheet for main-view
 import "./main-view.scss";
 
-
 class Mainview extends React.Component {
   constructor() {
     super();
     this.state = {
-      user: null
+      user: null,
     };
   }
 
@@ -36,7 +35,7 @@ class Mainview extends React.Component {
     let accessToken = localStorage.getItem("token");
     if (accessToken !== null) {
       this.setState({
-        user: localStorage.getItem('user'),
+        user: localStorage.getItem("user"),
       });
       this.getMovies(accessToken);
     }
@@ -81,12 +80,9 @@ class Mainview extends React.Component {
       });
   }
 
-
-
   render() {
     let { movies } = this.props;
     let { user } = this.state;
-
 
     return (
       <Router>
@@ -103,18 +99,23 @@ class Mainview extends React.Component {
             );
           }}
         />
-       <Route exact path="/" render={() => {
-                        /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
-                        if (!user) return (
-                            <Col>
-                                <LoginView onLoggedIn={user => this.onLoggedIn(user)} />
-                            </Col>
-                        );
+        <Route
+          exact
+          path="/"
+          render={() => {
+            /* If there is no user, the LoginView is rendered. If there is a user logged in, the user details are *passed as a prop to the LoginView*/
+            if (!user)
+              return (
+                <Col>
+                  <LoginView onLoggedIn={(user) => this.onLoggedIn(user)} />
+                </Col>
+              );
 
-                        if (movies.length === 0) return <div className="main-view" />;
+            if (movies.length === 0) return <div className="main-view" />;
 
-                        return <MoviesList movies={movies} />;
-                    }} />
+            return <MoviesList movies={movies} />;
+          }}
+        />
         <Route
           path="/register"
           render={() => {
@@ -136,7 +137,10 @@ class Mainview extends React.Component {
             if (movies.length === 0) return <div className="main-view" />;
             return (
               <Col md={6}>
-               <MovieView movie={movies.find((m) => m._id === match.params.movieId)} onBackClick={() => history.goBack()} />
+                <MovieView
+                  movie={movies.find((m) => m._id === match.params.movieId)}
+                  onBackClick={() => history.goBack()}
+                />
               </Col>
             );
           }}
@@ -150,7 +154,13 @@ class Mainview extends React.Component {
             if (movies.length === 0) return <div className="main-view" />;
             return (
               <Col xs={12} md={10}>
-                <GenreView movies={movies} genre={movies.find(m => m.Genre.Name === match.params.name).Genre} onBackClick={() => history.goBack()} />
+                <GenreView
+                  movies={movies}
+                  genre={
+                    movies.find((m) => m.Genre.Name === match.params.name).Genre
+                  }
+                  onBackClick={() => history.goBack()}
+                />
               </Col>
             );
           }}
@@ -195,11 +205,10 @@ class Mainview extends React.Component {
       </Router>
     );
   }
-
 }
 
-let mapStateToProps = state => {
-  return { movies: state.movies }
-}
+let mapStateToProps = (state) => {
+  return { movies: state.movies };
+};
 
-export default  connect(mapStateToProps, { setMovies } )  (Mainview);
+export default connect(mapStateToProps, { setMovies })(Mainview);
