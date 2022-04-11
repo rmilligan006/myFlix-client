@@ -1,9 +1,10 @@
 import React from "react";
 import axios from "axios";
-import propTypes from "prop-types";
-import "./profile-view.scss";
-import { Link } from "react-router-dom";
 import { Container, Card, Button, Row, Col, Form } from "react-bootstrap";
+import { connect } from "react-redux";
+import { setUser, updateUser } from "../../actions/actions";
+
+import "./profile-view.scss";
 
 export class ProfileView extends React.Component {
   constructor() {
@@ -153,7 +154,7 @@ export class ProfileView extends React.Component {
     });
   }
   render() {
-    const { onBackClick, movies } = this.props;
+    const { onBackClick, movies, user } = this.props;
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
     if (!Username) {
@@ -298,3 +299,9 @@ export class ProfileView extends React.Component {
     );
   }
 }
+
+let mapStateToProps = (state) => {
+  return { user: state.user };
+};
+
+export default connect(mapStateToProps, { setUser })(ProfileView);

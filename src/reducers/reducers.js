@@ -1,8 +1,8 @@
 import { combineReducers } from "redux";
 
 import {
-  SET_FILTER,
   SET_MOVIES,
+  SET_FILTER,
   SET_USER,
   UPDATE_USER,
 } from "../actions/actions";
@@ -25,23 +25,36 @@ function movies(state = [], action) {
   }
 }
 
-function user(state = [], action) {
+function user(
+  state = {
+    Username: "",
+    Password: "",
+    Email: "",
+    Birthday: "",
+    FavoriteMovies: [],
+  },
+  action
+) {
+  const { field, value } = action;
   switch (action.type) {
     case SET_USER:
-      return action.user;
+      return value;
 
     case UPDATE_USER:
-      return action.value;
+      return {
+        ...state,
+        [field]: value,
+      };
 
     default:
       return state;
   }
 }
 
-const moviesApp = combineReducers({
+let moviesApp = combineReducers({
   visibilityFilter,
   movies,
-  user,
+  user
 });
 
 export default moviesApp;
