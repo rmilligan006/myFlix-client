@@ -32151,7 +32151,14 @@ var _toggleButtonGroupDefault = parcelHelpers.interopDefault(_toggleButtonGroup)
 var _tooltip = require("./Tooltip");
 var _tooltipDefault = parcelHelpers.interopDefault(_tooltip);
 
-},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"jbbel","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"4Wipl","./CardImg":"S6XBp","./CardGroup":false,"./Carousel":false,"./CarouselItem":false,"./CloseButton":"9JuQp","./Col":"bXcyc","./Collapse":"awU0o","./Dropdown":"4zfat","./DropdownButton":false,"./Fade":"dYSgc","./Form":"34lTU","./FormControl":"4rh12","./FormCheck":"8Ma9u","./FormFloating":"u5jeT","./FloatingLabel":"eZLi0","./FormGroup":"1QxbA","./FormLabel":"3XOfV","./FormText":"bg4wW","./FormSelect":"uQqTO","./Container":"2CNoU","./Image":false,"./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalHeader":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"arKFz","./Navbar":"anH5W","./NavbarBrand":"511C8","./NavDropdown":"3YPcZ","./NavItem":"kg5gZ","./NavLink":"9chg1","./Offcanvas":"kyeml","./OffcanvasHeader":"iZ7jp","./OffcanvasTitle":"60HM3","./OffcanvasBody":"aOy5B","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"9VQzY","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"fo4sG","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"lG0AS"}],"9JuQp":[function(require,module,exports) {
+},{"./Accordion":false,"./AccordionContext":false,"./AccordionCollapse":false,"./AccordionButton":false,"./Alert":false,"./Anchor":false,"./Badge":false,"./Breadcrumb":false,"./BreadcrumbItem":false,"./Button":"jbbel","./ButtonGroup":false,"./ButtonToolbar":false,"./Card":"4Wipl","./CardImg":"S6XBp","./CardGroup":"ey16h","./Carousel":false,"./CarouselItem":false,"./CloseButton":"9JuQp","./Col":"bXcyc","./Collapse":"awU0o","./Dropdown":"4zfat","./DropdownButton":false,"./Fade":"dYSgc","./Form":"34lTU","./FormControl":"4rh12","./FormCheck":"8Ma9u","./FormFloating":"u5jeT","./FloatingLabel":"eZLi0","./FormGroup":"1QxbA","./FormLabel":"3XOfV","./FormText":"bg4wW","./FormSelect":"uQqTO","./Container":"2CNoU","./Image":false,"./Figure":false,"./InputGroup":false,"./ListGroup":false,"./ListGroupItem":false,"./Modal":false,"./ModalBody":false,"./ModalDialog":false,"./ModalHeader":false,"./ModalFooter":false,"./ModalTitle":false,"./Nav":"arKFz","./Navbar":"anH5W","./NavbarBrand":"511C8","./NavDropdown":"3YPcZ","./NavItem":"kg5gZ","./NavLink":"9chg1","./Offcanvas":"kyeml","./OffcanvasHeader":"iZ7jp","./OffcanvasTitle":"60HM3","./OffcanvasBody":"aOy5B","./Overlay":false,"./OverlayTrigger":false,"./PageItem":false,"./Pagination":false,"./Placeholder":false,"./PlaceholderButton":false,"./Popover":false,"./PopoverHeader":false,"./PopoverBody":false,"./ProgressBar":false,"./Ratio":false,"./Row":"9VQzY","./Spinner":false,"./SplitButton":false,"./SSRProvider":false,"./Stack":false,"./Tab":false,"./TabContainer":false,"./TabContent":false,"./Table":false,"./TabPane":false,"./Tabs":false,"./ThemeProvider":"fo4sG","./Toast":false,"./ToastBody":false,"./ToastHeader":false,"./ToastContainer":false,"./ToggleButton":false,"./ToggleButtonGroup":false,"./Tooltip":false,"@parcel/transformer-js/src/esmodule-helpers.js":"lG0AS"}],"ey16h":[function(require,module,exports) {
+var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
+parcelHelpers.defineInteropFlag(exports);
+var _createWithBsPrefix = require("./createWithBsPrefix");
+var _createWithBsPrefixDefault = parcelHelpers.interopDefault(_createWithBsPrefix);
+exports.default = _createWithBsPrefixDefault.default('card-group');
+
+},{"./createWithBsPrefix":"eW2Uj","@parcel/transformer-js/src/esmodule-helpers.js":"lG0AS"}],"9JuQp":[function(require,module,exports) {
 var parcelHelpers = require("@parcel/transformer-js/src/esmodule-helpers.js");
 parcelHelpers.defineInteropFlag(exports);
 var _propTypes = require("prop-types");
@@ -39783,11 +39790,7 @@ class ProfileView extends _reactDefault.default.Component {
     constructor(){
         super();
         this.state = {
-            Username: "",
-            Password: "",
-            Email: "",
-            Birthday: "",
-            FavoriteMovies: []
+            user: null
         };
     }
     componentDidMount() {
@@ -39921,7 +39924,7 @@ class ProfileView extends _reactDefault.default.Component {
                                         children: "Profile"
                                     }, void 0, false, {
                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 170,
+                                        lineNumber: 166,
                                         columnNumber: 17
                                     }, this),
                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form, {
@@ -39935,7 +39938,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                         children: "Username"
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 184,
+                                                        lineNumber: 180,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -39948,13 +39951,13 @@ class ProfileView extends _reactDefault.default.Component {
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 185,
+                                                        lineNumber: 181,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 183,
+                                                lineNumber: 179,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
@@ -39963,7 +39966,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                         children: "Password"
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 196,
+                                                        lineNumber: 192,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -39976,13 +39979,13 @@ class ProfileView extends _reactDefault.default.Component {
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 197,
+                                                        lineNumber: 193,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 195,
+                                                lineNumber: 191,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
@@ -39991,7 +39994,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                         children: "Email"
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 208,
+                                                        lineNumber: 204,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -40004,13 +40007,13 @@ class ProfileView extends _reactDefault.default.Component {
                                                         required: true
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 209,
+                                                        lineNumber: 205,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 207,
+                                                lineNumber: 203,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Group, {
@@ -40019,7 +40022,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                         children: "Birthday"
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 220,
+                                                        lineNumber: 216,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Form.Control, {
@@ -40029,13 +40032,13 @@ class ProfileView extends _reactDefault.default.Component {
                                                         onChange: (e)=>this.setBirthday(e.target.value)
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 221,
+                                                        lineNumber: 217,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 219,
+                                                lineNumber: 215,
                                                 columnNumber: 19
                                             }, this),
                                             /*#__PURE__*/ _jsxDevRuntime.jsxDEV("div", {
@@ -40048,7 +40051,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                         children: "Update User"
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 229,
+                                                        lineNumber: 225,
                                                         columnNumber: 21
                                                     }, this),
                                                     /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -40059,40 +40062,40 @@ class ProfileView extends _reactDefault.default.Component {
                                                         children: "Delete User"
                                                     }, void 0, false, {
                                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                        lineNumber: 236,
+                                                        lineNumber: 232,
                                                         columnNumber: 21
                                                     }, this)
                                                 ]
                                             }, void 0, true, {
                                                 fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                lineNumber: 228,
+                                                lineNumber: 224,
                                                 columnNumber: 19
                                             }, this)
                                         ]
                                     }, void 0, true, {
                                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                        lineNumber: 171,
+                                        lineNumber: 167,
                                         columnNumber: 17
                                     }, this)
                                 ]
                             }, void 0, true, {
                                 fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                lineNumber: 169,
+                                lineNumber: 165,
                                 columnNumber: 15
                             }, this)
                         }, void 0, false, {
                             fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                            lineNumber: 168,
+                            lineNumber: 164,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                        lineNumber: 167,
+                        lineNumber: 163,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 166,
+                    lineNumber: 162,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
@@ -40107,17 +40110,17 @@ class ProfileView extends _reactDefault.default.Component {
                             ]
                         }, void 0, true, {
                             fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                            lineNumber: 251,
+                            lineNumber: 247,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                        lineNumber: 250,
+                        lineNumber: 246,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 249,
+                    lineNumber: 245,
                     columnNumber: 9
                 }, this),
                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
@@ -40129,7 +40132,7 @@ class ProfileView extends _reactDefault.default.Component {
                                     children: "No Favorite Movies"
                                 }, void 0, false, {
                                     fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 258,
+                                    lineNumber: 254,
                                     columnNumber: 17
                                 }, this),
                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Row, {
@@ -40145,7 +40148,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                     src: movie.ImagePath
                                                 }, void 0, false, {
                                                     fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                    lineNumber: 272,
+                                                    lineNumber: 268,
                                                     columnNumber: 27
                                                 }, this),
                                                 /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Body, {
@@ -40158,7 +40161,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                             children: movie.Title
                                                         }, void 0, false, {
                                                             fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                            lineNumber: 278,
+                                                            lineNumber: 274,
                                                             columnNumber: 29
                                                         }, this),
                                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -40170,58 +40173,60 @@ class ProfileView extends _reactDefault.default.Component {
                                                             children: "Remove"
                                                         }, void 0, false, {
                                                             fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                            lineNumber: 281,
+                                                            lineNumber: 277,
                                                             columnNumber: 29
                                                         }, this)
                                                     ]
                                                 }, void 0, true, {
                                                     fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                    lineNumber: 277,
+                                                    lineNumber: 273,
                                                     columnNumber: 27
                                                 }, this)
                                             ]
                                         }, movie._id, true, {
                                             fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                            lineNumber: 268,
+                                            lineNumber: 264,
                                             columnNumber: 25
                                         }, this);
                                     })
                                 }, void 0, false, {
                                     fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                    lineNumber: 260,
+                                    lineNumber: 256,
                                     columnNumber: 15
                                 }, this)
                             ]
                         }, void 0, true, {
                             fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                            lineNumber: 256,
+                            lineNumber: 252,
                             columnNumber: 13
                         }, this)
                     }, void 0, false, {
                         fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                        lineNumber: 255,
+                        lineNumber: 251,
                         columnNumber: 11
                     }, this)
                 }, void 0, false, {
                     fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                    lineNumber: 254,
+                    lineNumber: 250,
                     columnNumber: 9
                 }, this)
             ]
         }, void 0, true, {
             fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-            lineNumber: 165,
+            lineNumber: 161,
             columnNumber: 7
         }, this);
     }
 }
 let mapStateToProps = (state)=>{
     return {
-        user: state.user
+        user: state.user,
+        movies: state.movies
     };
 };
 exports.default = _reactRedux.connect(mapStateToProps, {
-    setUser: _actions.setUser
+    setUser: _actions.setUser,
+    updateUser: _actions.updateUser
 })(ProfileView);
 
   $parcel$ReactRefreshHelpers$72eb.postlude(module);
