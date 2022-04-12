@@ -53,22 +53,27 @@ class ProfileView extends React.Component {
     axios
       .put(
         `https://rmilligansmovieapp.herokuapp.com/users/${Username}`,
-        {
-          Username: this.state.Username,
-          Password: this.state.Password,
-          Email: this.state.Email,
-          Birthday: this.state.Birthday,
-        },
+        this.state,
         {
           headers: { Authorization: `Bearer ${token}` },
         }
       )
       .then((response) => {
-        this.props.setUser(response.data);
+        let formattedDate = null;
+        let anyBirthday = response.data.Birthday;
+        if (anyBirthday) {
+          formattedDate = anyBirthday.slice(0, 10);
+        }
+        this.props.updateUser({
+          Username: response.data.Username,
+          Password: response.data.Password,
+          Email: response.data.Email,
+          Birthday: formattedDate,
+        });
 
-        localStorage.setItem("user", response.data.Username);
-        alert("Profile updated");
-        window.open("/profile", "_self");
+        localStorage.setItem("user", this.state.Username);
+        alert("Profile updated successfully!");
+        window.open(`/`, "_self");
       })
       .catch(function (error) {
         console.log(error);
