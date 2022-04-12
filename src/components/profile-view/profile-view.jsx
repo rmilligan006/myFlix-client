@@ -148,7 +148,6 @@ class ProfileView extends React.Component {
   }
   render() {
     const { onBackClick, movies, user } = this.props;
-    const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
     if (!user.Username) {
       return null;
@@ -164,7 +163,7 @@ class ProfileView extends React.Component {
                 <Card.Title>Profile</Card.Title>
                 <Form
                   className="update-form"
-                  onSubmit={(e) => this.editUser(e)}
+                  onSubmit={(e) => this.updateUser(e)}
                 >
                   <Form.Group>
                     <Form.Label>Username</Form.Label>
@@ -172,7 +171,7 @@ class ProfileView extends React.Component {
                       type="text"
                       name="Username"
                       placeholder="New Username"
-                      value={Username}
+                      value={this.state.Username}
                       onChange={(e) => this.setUsername(e.target.value)}
                       required
                     />
@@ -184,7 +183,7 @@ class ProfileView extends React.Component {
                       type="password"
                       name="Password"
                       placeholder="New Password"
-                      value={""}
+                      value={this.state.Password}
                       onChange={(e) => this.setPassword(e.target.value)}
                       required
                     />
@@ -196,8 +195,8 @@ class ProfileView extends React.Component {
                       type="email"
                       name="Email"
                       placeholder="Enter Email"
-                      value={Email}
-                      onChange={(e) => this.setEmail(e.target.value)}
+                      value={this.state.Email}
+                      onChange={(e) => this.Email(e.target.value)}
                       required
                     />
                   </Form.Group>
@@ -207,7 +206,7 @@ class ProfileView extends React.Component {
                     <Form.Control
                       type="date"
                       name="Birthday"
-                      value={Birthday}
+                      value={this.state.Birthday}
                       onChange={(e) => this.setBirthday(e.target.value)}
                     />
                   </Form.Group>
