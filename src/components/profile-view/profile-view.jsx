@@ -6,12 +6,15 @@ import { setUser, updateUser } from "../../actions/actions";
 
 import "./profile-view.scss";
 
-export class ProfileView extends React.Component {
+class ProfileView extends React.Component {
   constructor() {
     super();
 
     this.state = {
-      user: null,
+      Username: "",
+      Password: "",
+      Email: "",
+      Birthday: "",
     };
   }
 
@@ -35,13 +38,7 @@ export class ProfileView extends React.Component {
         headers: { Authorization: `Bearer ${token}` },
       })
       .then((response) => {
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-          FavoriteMovies: response.data.FavoriteMovies,
-        });
+        this.props.setUser(response.data);
       })
       .catch(function (error) {
         console.log(error);
@@ -67,14 +64,9 @@ export class ProfileView extends React.Component {
         }
       )
       .then((response) => {
-        this.setState({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
-          Birthday: response.data.Birthday,
-        });
+        this.props.setUser(response.data);
 
-        localStorage.setItem("user", this.state.Username);
+        localStorage.setItem("user", response.data.Username);
         alert("Profile updated");
         window.open("/profile", "_self");
       })
@@ -153,12 +145,13 @@ export class ProfileView extends React.Component {
     const { onBackClick, movies, user } = this.props;
     const { FavoriteMovies, Username, Email, Birthday } = this.state;
 
-    if (!Username) {
+    if (!user.Username) {
       return null;
     }
 
     return (
       <Container className="profile-view" align="center">
+        {console.log(this.props)}
         <Row>
           <Col>
             <Card className="update-profile">
@@ -166,15 +159,7 @@ export class ProfileView extends React.Component {
                 <Card.Title>Profile</Card.Title>
                 <Form
                   className="update-form"
-                  onSubmit={(e) =>
-                    this.editUser(
-                      e,
-                      this.Username,
-                      this.Password,
-                      this.Email,
-                      this.Birthday
-                    )
-                  }
+                  onSubmit={(e) => this.editUser(e)}
                 >
                   <Form.Group>
                     <Form.Label>Username</Form.Label>
@@ -244,21 +229,21 @@ export class ProfileView extends React.Component {
         </Row>
         <Row style={{ marginTop: "20px" }}>
           <Col>
-            <h4>{Username} Favorite Movies</h4>
+            <h4>{`${user.Username}'s`} Favorite Movies</h4>
           </Col>
         </Row>
         <Row>
           <Col>
             <Card.Body>
-              {FavoriteMovies.length === 0 && (
+              {user.FavoriteMovies.length === 0 && (
                 <div className="text-center">No Favorite Movies</div>
               )}
               <Row className="favorite-container">
-                {FavoriteMovies.length > 0 &&
+                {user.FavoriteMovies.length > 0 &&
                   movies.map((movie) => {
                     if (
                       movie._id ===
-                      FavoriteMovies.find((fav) => fav === movie._id)
+                      user.FavoriteMovies.find((fav) => fav === movie._id)
                     ) {
                       return (
                         <Card
