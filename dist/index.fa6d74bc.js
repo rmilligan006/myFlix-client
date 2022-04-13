@@ -30533,9 +30533,11 @@ function MoviesList(props) {
             }, this),
             filteredMovies.map((m)=>/*#__PURE__*/ _jsxDevRuntime.jsxDEV(_containerDefault.default, {
                     children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_rowDefault.default, {
-                        className: "view-port",
+                        xs: 10,
+                        md: 10,
+                        lg: 10,
                         children: /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_colDefault.default, {
-                            md: 4,
+                            md: 6,
                             style: {
                                 padding: "1em"
                             },
@@ -40199,13 +40201,14 @@ class ProfileView extends _reactDefault.default.Component {
                                                     style: {
                                                         backgroundColor: "black"
                                                     },
+                                                    id: "fav-body",
                                                     children: [
                                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Card.Title, {
                                                             id: "profile-view",
                                                             children: movie.Title
                                                         }, void 0, false, {
                                                             fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                            lineNumber: 262,
+                                                            lineNumber: 265,
                                                             columnNumber: 29
                                                         }, this),
                                                         /*#__PURE__*/ _jsxDevRuntime.jsxDEV(_reactBootstrap.Button, {
@@ -40217,7 +40220,7 @@ class ProfileView extends _reactDefault.default.Component {
                                                             children: "Remove"
                                                         }, void 0, false, {
                                                             fileName: "Desktop/myFlix-client/src/components/profile-view/profile-view.jsx",
-                                                            lineNumber: 265,
+                                                            lineNumber: 268,
                                                             columnNumber: 29
                                                         }, this)
                                                     ]

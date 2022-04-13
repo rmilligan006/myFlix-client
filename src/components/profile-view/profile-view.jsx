@@ -258,7 +258,10 @@ class ProfileView extends React.Component {
                             variant="top"
                             src={movie.ImagePath}
                           />
-                          <Card.Body style={{ backgroundColor: "black" }}>
+                          <Card.Body
+                            style={{ backgroundColor: "black" }}
+                            id="fav-body"
+                          >
                             <Card.Title id="profile-view">
                               {movie.Title}
                             </Card.Title>

@@ -34,8 +34,8 @@ function MoviesList(props) {
       </Row>
       {filteredMovies.map((m) => (
         <Container>
-          <Row className="view-port">
-            <Col md={4} style={{ padding: "1em" }} key={m._id}>
+          <Row xs={10} md={10} lg={10}>
+            <Col md={6} style={{ padding: "1em" }} key={m._id}>
               <MovieCard movie={m} />
             </Col>
           </Row>

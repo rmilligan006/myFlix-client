@@ -14,9 +14,7 @@ $mainColor: #e5383b;
 }
 
 .view-port {
-    display: grid;
-    grid-template-columns: 1fr 3fr;
-  grid-template-rows: 1fr 3fr; 
-  column-gap: 10px;
-  row-gap: 15px;
+    width: 100%;
+    height: 20vw;
+    object-fit: fill;
 }
