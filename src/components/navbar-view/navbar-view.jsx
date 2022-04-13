@@ -1,6 +1,6 @@
 import React from "react";
 import "./navbar-view.scss";
-import { Link } from 'react-router-dom';
+import { Link } from "react-router-dom";
 import {
   Navbar,
   Container,
@@ -19,7 +19,7 @@ export function NavbarView({ user }) {
   };
 
   return (
-    <Navbar bg="" expand="lg">
+    <Navbar variant="dark" expand="lg" sticky="top">
       <Container>
         <Navbar.Brand href="/">myFlix</Navbar.Brand>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -27,12 +27,15 @@ export function NavbarView({ user }) {
           <Nav className="me-auto">
             <Nav.Link href="/">Movie List</Nav.Link>
             <Nav.Link href="/users/:username">Profile</Nav.Link>
-            <Button variant="link" onClick={() => {
-              onLoggedOut()
-            }}>Logout</Button>
-
+            <Button
+              variant="link"
+              onClick={() => {
+                onLoggedOut();
+              }}
+            >
+              Logout
+            </Button>
           </Nav>
-
         </Navbar.Collapse>
       </Container>
     </Navbar>

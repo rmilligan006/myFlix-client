@@ -1,0 +1,25 @@
+$backgroundColor: rgb(0, 0, 0);
+$textColor: rgba(255, 255, 255, 0.867);
+$mainColor: #e5383b;
+
+:root {
+    --fontsize-button-text: 15px;
+    --fontweight-button-text: 400;
+}
+
+* {
+    font-family: "League Spartan", sans-serif;
+    background-color: $backgroundColor;
+    color: $textColor;
+}
+
+#director-view-body {
+    background-color: $backgroundColor;
+}
+
+#director-view-body-name {
+    background-color: $backgroundColor;
+    text-align: center;
+    font-size: var(--fontsize-movie-title);
+    font-weight: var(--fontweight-movie-title);
+}

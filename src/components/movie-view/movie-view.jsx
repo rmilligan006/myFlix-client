@@ -45,12 +45,12 @@ export class MovieView extends React.Component {
     const { movie, onBackClick } = this.props;
 
     return (
-      <Container>
+      <Container id="">
         {movie && onBackClick && (
           <Row>
             <Col>
-              <Card id="movie-view">
-                <Card.Body>
+              <Card style={{ width: "50em" }} id="movie-view">
+                <Card.Body id="movie-view-body">
                   <Card.Img
                     id="movie-view-image"
                     variant="top"

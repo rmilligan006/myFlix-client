@@ -1,3 +1,87 @@
+:root {
+  --fontsize-button-text: 15px;
+  --fontweight-button-text: 400;
+}
+
+* {
+  color: #fffd;
+  background-color: #373a35;
+  font-family: League Spartan, sans-serif;
+}
+
+#movie-card-body {
+  color: #fffd;
+  background-color: #373a35;
+}
+
+#movie-card-top {
+  width: 100%;
+  height: 20vw;
+  object-fit: fill;
+}
+
+:root {
+  --fontsize-button-text: 15px;
+  --fontweight-button-text: 400;
+}
+
+* {
+  color: #fffd;
+  background-color: #000;
+  font-family: League Spartan, sans-serif;
+}
+
+.view-port {
+  grid-template-rows: 1fr 3fr;
+  grid-template-columns: 1fr 3fr;
+  gap: 15px 10px;
+  display: grid;
+}
+
+
+
+:root {
+  --fontsize-movie-title: 20px;
+  --fontweight-movie-title: 600;
+  --fontsize-movie-description: 20px;
+  --fontweight-movie-description: 400;
+}
+
+* {
+  box-sizing: border-box;
+  font-family: League Spartan, sans-serif;
+}
+
+#movie-view-body {
+  background-color: #000;
+}
+
+#movie-view-image {
+  width: 50%;
+  height: 20vw;
+  object-fit: contain;
+  background-color: #000;
+}
+
+#movie-title {
+  text-align: center;
+  font-size: var(--fontsize-movie-title);
+  font-weight: var(--fontweight-movie-title);
+  background-color: #000;
+}
+
+#movie-description, #movie-director, #movie-genre {
+  font-size: var(--fontsize-movie-description);
+  font-weight: var(--fontweight-movie-description);
+  background-color: #000;
+}
+
+#movie-view-button {
+  color: #f1fffa;
+  background-color: #e5383b;
+  border: none;
+}
+
 * {
   box-sizing: border-box;
   color: #0a043c;
@@ -5,37 +89,70 @@
   font-family: Oxygen, sans-serif;
 }
 
+#profile-view {
+  background-color: #000;
+}
 
+#fav-poster {
+  width: 100%;
+  height: 20vw;
+  object-fit: fill;
+}
+
+:root {
+  --fontsize-button-text: 15px;
+  --fontweight-button-text: 400;
+}
 
 * {
-  box-sizing: border-box;
-  color: #0a043c;
-  background-color: #effffd;
-  font-family: Oxygen, sans-serif;
+  color: #fffd;
+  background-color: #000;
+  font-family: League Spartan, sans-serif;
 }
 
-.button {
-  border: 1px solid #e1e4e8;
-  border-radius: 10px;
-  padding: 3px 10px;
-  font-size: 12px;
+#director-view-body {
+  background-color: #000;
+}
+
+#director-view-body-name {
+  text-align: center;
+  font-size: var(--fontsize-movie-title);
+  font-weight: var(--fontweight-movie-title);
+  background-color: #000;
+}
+
+:root {
+  --fontsize-button-text: 15px;
+  --fontweight-button-text: 400;
 }
 
 * {
-  box-sizing: border-box;
-  color: #0a043c;
-  background-color: #effffd;
-  font-family: Oxygen, sans-serif;
+  color: #fffd;
+  background-color: #000;
+  font-family: League Spartan, sans-serif;
+}
+
+#genre-view-body {
+  color: #fffd;
+  background-color: #000;
+}
+
+#genre-view-body-name {
+  text-align: center;
+  background-color: #000;
+}
+
+:root {
+  --fontsize-button-text: 15px;
+  --fontweight-button-text: 400;
+}
+
+* {
+  color: #fffd;
+  background-color: #14605b;
+  font-family: League Spartan, sans-serif;
 }
 
 
-
-
-
-
-
-.my-flix {
-  color: #000;
-}
 
 /*# sourceMappingURL=index.6cd4a3e8.css.map */

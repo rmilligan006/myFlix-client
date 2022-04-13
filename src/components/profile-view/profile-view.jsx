@@ -26,6 +26,7 @@ class ProfileView extends React.Component {
   onLoggedOut() {
     localStorage.removeItem("token");
     localStorage.removeItem("user");
+    this.props.setUser(null);
     this.setState({
       user: null,
     });
@@ -59,19 +60,12 @@ class ProfileView extends React.Component {
         }
       )
       .then((response) => {
-        let formattedDate = null;
-        let anyBirthday = response.data.Birthday;
-        if (anyBirthday) {
-          formattedDate = anyBirthday.slice(0, 10);
-        }
-        this.props.updateUser({
-          Username: response.data.Username,
-          Password: response.data.Password,
-          Email: response.data.Email,
+        this.props.setUser({
+          ...response.data,
           Birthday: formattedDate,
         });
 
-        localStorage.setItem("user", this.state.Username);
+        localStorage.setItem("user", response.data.Username);
         alert("Profile updated successfully!");
         window.open(`/`, "_self");
       })
@@ -94,8 +88,16 @@ class ProfileView extends React.Component {
       )
       .then((response) => {
         console.log(response);
+        let formattedDate = null;
+        let anyBirthday = response.data.Birthday;
+        if (anyBirthday) {
+          formattedDate = anyBirthday.slice(0, 10);
+        }
         alert("Movie removed");
-        this.componentDidMount();
+        this.props.setUser({
+          ...response.data,
+          Birthday: formattedDate,
+        });
       })
       .catch(function (error) {
         console.log(error);
@@ -116,7 +118,7 @@ class ProfileView extends React.Component {
         alert("Profile deleted");
         localStorage.removeItem("user");
         localStorage.removeItem("token");
-        window.open("/", "_self");
+        this.props.setUser(null);
       })
       .catch(function (error) {
         console.log(error);
@@ -154,19 +156,16 @@ class ProfileView extends React.Component {
     }
 
     return (
-      <Container className="profile-view" align="center">
+      <Container align="center">
         {console.log(this.props)}
         <Row>
           <Col>
-            <Card className="update-profile">
-              <Card.Body>
-                <Card.Title>Profile</Card.Title>
-                <Form
-                  className="update-form"
-                  onSubmit={(e) => this.updateUser(e)}
-                >
-                  <Form.Group>
-                    <Form.Label>Username</Form.Label>
+            <Card id="profile-view">
+              <Card.Body id="profile-view">
+                <Card.Title id="profile-view">Profile</Card.Title>
+                <Form id="profile-view" onSubmit={(e) => this.updateUser(e)}>
+                  <Form.Group id="profile-view">
+                    <Form.Label id="profile-view">Username</Form.Label>
                     <Form.Control
                       type="text"
                       name="Username"
@@ -177,8 +176,8 @@ class ProfileView extends React.Component {
                     />
                   </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>Password</Form.Label>
+                  <Form.Group id="profile-view">
+                    <Form.Label id="profile-view">Password</Form.Label>
                     <Form.Control
                       type="password"
                       name="Password"
@@ -189,8 +188,8 @@ class ProfileView extends React.Component {
                     />
                   </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>Email</Form.Label>
+                  <Form.Group id="profile-view">
+                    <Form.Label id="profile-view">Email</Form.Label>
                     <Form.Control
                       type="email"
                       name="Email"
@@ -201,8 +200,8 @@ class ProfileView extends React.Component {
                     />
                   </Form.Group>
 
-                  <Form.Group>
-                    <Form.Label>Birthday</Form.Label>
+                  <Form.Group id="profile-view">
+                    <Form.Label id="profile-view">Birthday</Form.Label>
                     <Form.Control
                       type="date"
                       name="Birthday"
@@ -210,7 +209,7 @@ class ProfileView extends React.Component {
                       onChange={(e) => this.setBirthday(e.target.value)}
                     />
                   </Form.Group>
-                  <div className="mt-3">
+                  <div id="profile-view">
                     <Button
                       variant="success"
                       type="submit"
@@ -242,7 +241,7 @@ class ProfileView extends React.Component {
               {user.FavoriteMovies.length === 0 && (
                 <div className="text-center">No Favorite Movies</div>
               )}
-              <Row className="favorite-container">
+              <Row md={5} className="favorite-container">
                 {user.FavoriteMovies.length > 0 &&
                   movies.map((movie) => {
                     if (
@@ -255,12 +254,12 @@ class ProfileView extends React.Component {
                           key={movie._id}
                         >
                           <Card.Img
-                            className="fav-poster"
+                            id="fav-poster"
                             variant="top"
                             src={movie.ImagePath}
                           />
                           <Card.Body style={{ backgroundColor: "black" }}>
-                            <Card.Title className="movie_title">
+                            <Card.Title id="profile-view">
                               {movie.Title}
                             </Card.Title>
                             <Button

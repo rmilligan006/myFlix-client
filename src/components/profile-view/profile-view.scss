@@ -1,0 +1,12 @@
+$backgroundColor: rgb(0, 0, 0);
+$textColor: rgba(255, 255, 255, 0.867);
+$mainColor: #e5383b;
+
+#profile-view {
+    background-color: $backgroundColor;
+}
+#fav-poster {
+    width: 100%;
+    height: 20vw;
+    object-fit: fill;
+}

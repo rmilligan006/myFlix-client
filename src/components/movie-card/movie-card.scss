@@ -1,7 +1,26 @@
-* {
-    box-sizing: border-box;
-    font-family: 'Oxygen', sans-serif;;
-    background-color: #EFFFFD;
-    color: #0A043C;
+$backgroundColor: rgb(55, 58, 53);
+$textColor: rgba(255, 255, 255, 0.867);
+$mainColor: #e5383b;
 
+:root {
+    --fontsize-button-text: 15px;
+    --fontweight-button-text: 400;
+}
+
+* {
+    font-family: "League Spartan", sans-serif;
+    background-color: $backgroundColor;
+    color: $textColor;
+}
+
+#movie-card-body {
+    background-color: $backgroundColor;
+    color: $textColor;
+}
+
+#movie-card-top {
+    width: 100%;
+    height: 20vw;
+    object-fit: fill;
+    
 }

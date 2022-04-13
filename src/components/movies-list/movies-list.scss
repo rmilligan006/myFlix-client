@@ -1,0 +1,22 @@
+$backgroundColor: rgb(0, 0, 0);
+$textColor: rgba(255, 255, 255, 0.867);
+$mainColor: #e5383b;
+
+:root {
+    --fontsize-button-text: 15px;
+    --fontweight-button-text: 400;
+}
+
+* {
+    font-family: "League Spartan", sans-serif;
+    background-color: $backgroundColor;
+    color: $textColor;
+}
+
+.view-port {
+    display: grid;
+    grid-template-columns: 1fr 3fr;
+  grid-template-rows: 1fr 3fr; 
+  column-gap: 10px;
+  row-gap: 15px;
+}
